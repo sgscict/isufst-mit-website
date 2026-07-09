@@ -339,7 +339,7 @@ export const facultyMembers: FacultyMember[] = [
   {
     name: 'Ram Eujohn Diamante',
     title: 'Instructor III',
-    degree: 'MIT — Master in Information Technology · DIT (ongoing)',
+    degree: 'MIT — Master in Information Technology · Doctor in Information Technology (ongoing)',
     specialization: 'Machine Learning',
   },
   {
