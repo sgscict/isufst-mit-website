@@ -337,9 +337,9 @@ export const facultyMembers: FacultyMember[] = [
     photo: '/faculty/diamante-renante.png',
   },
   {
-    name: 'Ram Eujohn Diamante',
+    name: 'Ram Eujohn Diamante, MIT',
     title: 'Instructor III',
-    degree: 'MIT — Master in Information Technology · Doctor in Information Technology (ongoing)',
+    degree: 'DIT — Doctor in Information Technology (ongoing)',
     specialization: 'Machine Learning',
   },
   {
