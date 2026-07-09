@@ -38,8 +38,7 @@ function FacultyCard({ member, delay }: { member: (typeof facultyMembers)[number
     >
       <Avatar name={member.name} photo={member.photo} className="mx-auto h-20 w-20 text-xl" />
       <h3 className="mt-4 font-display text-base font-bold text-navy-900 dark:text-white">{member.name}</h3>
-      <p className="mt-1 text-sm font-semibold text-teal-600 dark:text-teal-400">{member.title}</p>
-      <p className="mt-1 text-xs text-slate-500 dark:text-navy-100/50">{member.degree}</p>
+      <p className="mt-1 text-xs font-semibold text-teal-600 dark:text-teal-400">{member.degree}</p>
       <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-navy-100/65">{member.specialization}</p>
     </Reveal>
   )

@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Raw/unused source uploads (not referenced by the app — see public/faculty for the ones in use)
+src/assets/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

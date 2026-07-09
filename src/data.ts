@@ -301,14 +301,14 @@ export const leadership: FacultyMember[] = [
   {
     name: 'Dr. Noel P. Caliston',
     title: 'Dean',
-    degree: 'DIT — Doctor in Information Technology · Associate Professor V',
+    degree: 'DIT — Doctor in Information Technology',
     specialization: 'AI and Machine Learning',
     photo: '/faculty/caliston-noel.png',
   },
   {
     name: 'Dr. Jassiel I. Padios',
     title: 'Program Chair',
-    degree: 'DIT — Doctor in Information Technology · Assistant Professor I',
+    degree: 'DIT — Doctor in Information Technology',
     specialization: 'AI, Data Management and Analytics',
     photo: '/faculty/padios-jassiel.png',
   },
