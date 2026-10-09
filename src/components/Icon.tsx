@@ -28,9 +28,17 @@ const paths: Record<string, string> = {
   phone:
     'M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 16.9Z',
   clock: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM12 7v5l3 2',
+  calendar: 'M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2ZM16 2v4M8 2v4M3 10h18',
+  laptop: 'M4 6h16v10H4zM2 18h20v2H2z',
+  calculator: 'M4 4h16v16H4zM8 8h8M8 12h2M14 12h2M8 16h2M14 16h2',
+  download: 'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3',
+  close: 'M18 6L6 18M6 6l12 12',
+  info: 'M12 16v-4M12 8h.01M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z',
+  chevron: 'M6 9l6 6 6-6',
+  external: 'M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3',
 }
 
-export default function Icon({ name, className = 'h-6 w-6' }: IconProps) {
+export default function Icon({ name, className = 'h-5 w-5' }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"

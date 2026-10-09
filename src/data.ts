@@ -1,6 +1,6 @@
 // Program content for the Master in Information Technology (MIT) site.
-// This is the single source of truth — components read from this file.
-// Content is drawn from the official ISUFST–CICT program documents:
+// Single source of truth — components read from this file.
+// Content is drawn from official ISUFST–CICT program documents:
 // the MIT Study Plan, Graduate Catalogue, Capstone Project Manual,
 // CICT Research Agenda 2026–2031, and the CICT AI Ethics Policy.
 
@@ -8,286 +8,618 @@ export const program = {
   degree: 'Master in Information Technology',
   abbrev: 'MIT',
   specialization: 'Applied AI and Data Analytics for Fisheries and Agriculture',
-  college: 'College of Information and Communication Technology',
+  college: 'College of Information and Communications Technology',
   collegeAbbrev: 'CICT',
   university: 'Iloilo State University of Fisheries Science and Technology',
   universityAbbrev: 'ISUFST',
   location: 'Barotac Nuevo, Iloilo · Western Visayas · Philippines',
-  badge: 'PQF Level 7 · 36 Units · Trimestral',
+  badge: 'PQF Level 7 · 36 Units · Trimestral · CHED CMO 15 s.2019',
   tagline:
-    'A master’s degree completed not by a thesis, but by a working technology artifact that solves a real problem — where computing meets the sea, the soil, and the communities of the Philippines.',
-  chair: 'Jassiel I. Padios, DIT',
-  dean: 'Noel P. Caliston, DIT',
+    'A master’s degree completed not by a traditional theoretical thesis, but by a demonstrable, peer-evaluated technology artifact that solves real-world challenges in fisheries, agriculture, and the Philippine blue economy.',
+  chair: 'Dr. Jassiel I. Padios',
+  dean: 'Dr. Noel P. Caliston',
+  academicYear: 'AY 2026–2027',
+  intakeTerm: 'First Trimester Intake',
+  scheduleMode: 'Executive Saturday & HyFlex Hybrid Modality',
 }
 
 export const heroStats = [
-  { v: '36', l: 'Units' },
-  { v: 'Level 7', l: 'PQF (Master’s)' },
-  { v: '3', l: 'Terms + summer' },
+  { v: '36', l: 'Units Total', desc: '12 Core · 18 Specialization · 6 Capstone' },
+  { v: 'Level 7', l: 'PQF Master’s', desc: 'Aligned with CHED CMO 15 s.2019' },
+  { v: '15–24', l: 'Months', desc: 'Accelerated trimestral timeline' },
+  { v: '100%', l: 'DOST STRAND', desc: 'Full scholarship & ₱30k/mo stipend available' },
 ]
 
 export const stats = [
-  { value: '36', label: 'Total units', sub: '12 core · 18 specialization · 6 capstone' },
-  { value: '11', label: 'Taught courses', sub: 'MIT 701–710, then CAPS 1 & 2' },
-  { value: '3', label: 'Capstone defenses', sub: 'Concept · pre-oral · final' },
-  { value: '1', label: 'Journal paper', sub: 'Required for graduation' },
+  { value: '36', label: 'Curriculum Units', sub: '12 core · 18 specialization · 6 capstone' },
+  { value: '11', label: 'Taught Courses', sub: 'MIT 701–710 plus CAPS 1 & 2' },
+  { value: '3', label: 'Rigorous Quality Gates', sub: 'Comprehensive Exam · Concept Defense · Final Artifact Defense' },
+  { value: '1', label: 'Refereed Journal Paper', sub: 'Mandatory Scopus / WoS indexed paper before graduation' },
 ]
 
-// The single most important thing a student must know.
+// The three graduation gates
 export const requirements = [
   {
     n: '01',
     icon: 'doc',
     title: 'Pass the Comprehensive Examination',
-    body: 'A written examination across your core and specialization coursework, taken at the close of the Summer term of Year 1 — before you may enrol in the capstone.',
-    when: 'Summer · AY 2026–2027',
+    body: 'A written diagnostic and synoptic examination across core and specialization coursework, administered at the close of the Summer term of Year 1 before capstone enrollment.',
+    when: 'Summer Term · Year 1',
+    badge: 'Synoptic Written Exam',
   },
   {
     n: '02',
     icon: 'build',
-    title: 'Build & defend the Capstone',
-    body: 'Complete and successfully defend CAPS 1 (proposal) and CAPS 2 (implementation). A working artifact, three defenses, and a Capstone Advisory Committee stand between you and this checkmark.',
-    when: 'Trimesters 1–2 · AY 2027–2028',
+    title: 'Build & Defend the Capstone Artifact',
+    body: 'Complete CAPS 1 (Proposal & Prototype) and CAPS 2 (Production Artifact & Evaluation) under Design Science Research Methodology (DSRM). Live demonstration required.',
+    when: 'Trimesters 1–2 · Year 2',
+    badge: 'Live Working System',
   },
   {
     n: '03',
     icon: 'journal',
-    title: 'Publish in a refereed journal',
-    body: 'At least one paper from your work must be accepted for publication in an internationally refereed journal. Acceptance is a precondition for scheduling the final defense — plan for it from CAPS 1.',
-    when: 'During CAPS 2 · submit by Week 5',
+    title: 'Publish in an Internationally Refereed Journal',
+    body: 'At least one manuscript derived from your capstone artifact must be accepted for publication in an internationally refereed, peer-reviewed journal prior to the final oral defense.',
+    when: 'During CAPS 2 · Before Final Defense',
+    badge: 'Scopus / WoS Refereed',
   },
 ]
 
 export const highlights = [
   {
     icon: 'build',
-    title: 'Build, don’t just describe',
-    body: 'The deliverable is a working artifact — a system, model, framework, or tool — that is demonstrable, testable, and evaluated against real requirements, not a purely theoretical analysis.',
+    title: 'Build, Don’t Just Describe',
+    body: 'Your capstone deliverable is a functional software, embedded, or data system — evaluated rigorously against real industry benchmarks, not just theoretical prose.',
   },
   {
     icon: 'anchor',
-    title: 'Solve a real problem',
-    body: 'Every capstone addresses an authentic problem in fisheries, aquaculture, agriculture, or the blue economy — validated with actual stakeholders, preferably in Western Visayas.',
+    title: 'Rooted in the Philippine Blue Economy',
+    body: 'Directly address food security, sustainable mariculture, smart fishing, and agricultural value chains across Panay Island and Western Visayas.',
   },
   {
     icon: 'brain',
-    title: 'Apply AI rigorously',
-    body: 'Machine learning, data analytics, or IoT must be a core component — never a superficial add-on — with substantive command of the technology’s capabilities, limits, and ethics.',
+    title: 'Deep Applied Machine Learning',
+    body: 'Computer vision on edge devices, predictive geospatial time-series, and large model architectures integrated as core computational components.',
   },
   {
     icon: 'flask',
-    title: 'Design Science method',
-    body: 'The capstone is governed by Design Science Research Methodology (DSRM): you build an artifact and evaluate it as a legitimate, publishable contribution to knowledge.',
+    title: 'Design Science Research (DSRM)',
+    body: 'Follow the internationally recognized DSRM framework (Hevner, Peffers et al.) to ensure your engineering work qualifies as publishable academic research.',
   },
   {
     icon: 'scale',
-    title: 'Responsible by design',
-    body: 'Grounded in the CICT AI Ethics Policy and RA 10173, you build systems that are fair, transparent, private, and accountable to the communities they touch.',
+    title: 'AI Governance & Data Privacy',
+    body: 'Full alignment with the CICT AI Ethics Policy, the Philippine National AI Strategy, and Republic Act 10173 (Data Privacy Act of 2012).',
   },
   {
     icon: 'globe',
-    title: 'Internationally legible',
-    body: 'Built to CHED CMO 15 s. 2019, the Philippine Qualifications Framework, ACM/IEEE IT2017, and the Philippine Standard Framework for AI — a qualification that reads clearly anywhere.',
+    title: 'Executive HyFlex Schedule',
+    body: 'Engineered for full-time software engineers, network engineers, educators, and IT managers with Saturday modular sessions and asynchronous labs.',
   },
 ]
 
-// Program outcomes (PO1–PO6) — pursuant to CHED CMO 15 s.2019 & PQF Level 7.
+// Program outcomes (PO1–PO6) pursuant to CHED CMO 15 s.2019 & PQF Level 7.
 export const outcomes = [
-  { n: 'PO1', title: 'Apply advanced knowledge', body: 'Analyze, design, and implement innovative IT solutions for complex, real-world problems.' },
-  { n: 'PO2', title: 'Conduct research', body: 'Contribute to knowledge creation, technological advancement, or practical applications in IT.' },
-  { n: 'PO3', title: 'Act ethically', body: 'Integrate ethical, professional, legal, and societal responsibilities into practice.' },
-  { n: 'PO4', title: 'Communicate', body: 'Convey complex IT concepts and research clearly to technical and non-technical audiences.' },
-  { n: 'PO5', title: 'Lead teams', body: 'Demonstrate initiative, accountability, and adaptability in managing and executing IT projects.' },
-  { n: 'PO6', title: 'Learn for life', body: 'Stay abreast of emerging trends and technologies through continuous professional development.' },
+  { n: 'PO1', title: 'Advanced IT Problem Solving', body: 'Analyze, architect, and deploy high-concurrency, secure IT solutions addressing complex industrial and institutional problems.' },
+  { n: 'PO2', title: 'Design Science & Applied Research', body: 'Produce innovative technological artifacts and contribute original empirical findings to peer-reviewed international scientific literature.' },
+  { n: 'PO3', title: 'Ethical & Responsible Technology', body: 'Integrate information security, algorithmic transparency, data stewardship, and societal welfare into every system lifecycle.' },
+  { n: 'PO4', title: 'High-Level Technical Communication', body: 'Defend architectural decisions, present research findings at international symposia, and author peer-reviewed manuscripts.' },
+  { n: 'PO5', title: 'Engineering Leadership & Governance', body: 'Lead multidisciplinary engineering teams, implement ITIL/COBIT governance, and manage mission-critical digital transformation projects.' },
+  { n: 'PO6', title: 'Lifelong Technological Mastery', body: 'Independently assimilate emerging computing paradigms, generative models, quantum concepts, and distributed technologies.' },
 ]
 
-// The study plan, term by term.
-export const curriculum = [
+export type CourseDetail = {
+  code: string
+  title: string
+  units: number
+  kind: 'core' | 'spec' | 'caps' | 'milestone'
+  description: string
+  technologies: string[]
+  deliverable: string
+}
+
+export type CurriculumTerm = {
+  term: string
+  ay: string
+  units: number
+  tag: string
+  courses: CourseDetail[]
+}
+
+// Complete rich curriculum with syllabus descriptions and tech stacks
+export const curriculum: CurriculumTerm[] = [
   {
     term: 'First Trimester',
-    ay: 'AY 2026–2027',
+    ay: 'Year 1 · Trimester 1',
     units: 9,
+    tag: 'Cloud Foundations & Distributed Systems',
     courses: [
-      { code: 'MIT 701', title: 'Cloud Infrastructure and Virtualization', units: 3, kind: 'core' },
-      { code: 'MIT 702', title: 'Data Management and Analytics', units: 3, kind: 'core' },
-      { code: 'MIT 703', title: 'IT Infrastructure and Service Management', units: 3, kind: 'core' },
+      {
+        code: 'MIT 701',
+        title: 'Cloud Infrastructure and Virtualization',
+        units: 3,
+        kind: 'core',
+        description:
+          'Architecting fault-tolerant, elastic cloud solutions. Covers container orchestration, infrastructure as code, serverless compute, and microservices networking.',
+        technologies: ['Docker', 'Kubernetes', 'Terraform', 'AWS/GCP', 'Linux Kernel'],
+        deliverable: 'Automated CI/CD multi-tier containerized cluster with monitoring',
+      },
+      {
+        code: 'MIT 702',
+        title: 'Data Management and Analytics',
+        units: 3,
+        kind: 'core',
+        description:
+          'Advanced relational modeling, spatial GIS databases, columnar data lakes, time-series storage, and high-throughput data processing pipelines.',
+        technologies: ['PostgreSQL', 'PostGIS', 'Apache Spark', 'TimescaleDB', 'dbt'],
+        deliverable: 'Spatial-temporal analytics pipeline for fisheries & agricultural telemetry',
+      },
+      {
+        code: 'MIT 703',
+        title: 'IT Infrastructure and Service Management',
+        units: 3,
+        kind: 'core',
+        description:
+          'Enterprise infrastructure reliability, high-availability networks, zero-trust security postures, and ITIL v4 service delivery frameworks.',
+        technologies: ['ITIL 4', 'WireGuard', 'Prometheus', 'Grafana', 'Zero Trust Architecture'],
+        deliverable: 'Enterprise SLA & disaster recovery architecture blueprint',
+      },
     ],
   },
   {
     term: 'Second Trimester',
-    ay: 'AY 2026–2027',
+    ay: 'Year 1 · Trimester 2',
     units: 9,
+    tag: 'Machine Learning & Predictive Systems',
     courses: [
-      { code: 'MIT 704', title: 'IT Project Management and Governance', units: 3, kind: 'core' },
-      { code: 'MIT 705', title: 'Artificial Intelligence and Machine Learning', units: 3, kind: 'spec' },
-      { code: 'MIT 706', title: 'Data Mining and Predictive Modeling', units: 3, kind: 'spec' },
+      {
+        code: 'MIT 704',
+        title: 'IT Project Management and Governance',
+        units: 3,
+        kind: 'core',
+        description:
+          'Agile and hybrid engineering management, COBIT governance, technology risk valuation, budget forecasting, and intellectual property protection.',
+        technologies: ['Scrum', 'COBIT 2019', 'Jira', 'IP Law / RA 8293', 'Risk Matrix'],
+        deliverable: 'Audited enterprise digital governance charter & product roadmap',
+      },
+      {
+        code: 'MIT 705',
+        title: 'Artificial Intelligence and Machine Learning',
+        units: 3,
+        kind: 'spec',
+        description:
+          'Supervised and unsupervised learning, deep neural architectures, edge vision models, transfer learning, and model optimization for constrained devices.',
+        technologies: ['Python', 'PyTorch', 'Hugging Face', 'ONNX', 'OpenCV'],
+        deliverable: 'Trained, pruned edge-AI model for species detection or crop diagnosis',
+      },
+      {
+        code: 'MIT 706',
+        title: 'Data Mining and Predictive Modeling',
+        units: 3,
+        kind: 'spec',
+        description:
+          'Advanced feature engineering, time-series forecasting, anomaly detection, geospatial spatial autocorrelation, and ensemble predictive algorithms.',
+        technologies: ['XGBoost', 'Prophet', 'GeoPandas', 'SHAP', 'Scikit-Learn'],
+        deliverable: 'Validated predictive yield/catch forecasting system with explanatory metrics',
+      },
     ],
   },
   {
     term: 'Third Trimester',
-    ay: 'AY 2026–2027',
+    ay: 'Year 1 · Trimester 3',
     units: 9,
+    tag: 'Edge Systems, IoT & Research Methodology',
     courses: [
-      { code: 'MIT 707', title: 'AI Governance, Ethics, and Information Assurance', units: 3, kind: 'spec' },
-      { code: 'MIT 708', title: 'Internet of Things and Embedded Systems', units: 3, kind: 'spec' },
-      { code: 'MIT 709', title: 'Design Science Research in IT', units: 3, kind: 'spec' },
+      {
+        code: 'MIT 707',
+        title: 'AI Governance, Ethics, and Information Assurance',
+        units: 3,
+        kind: 'spec',
+        description:
+          'Regulatory compliance, ISO 42001 AI management systems, algorithmic bias auditing, differential privacy, and cybersecurity penetration testing.',
+        technologies: ['ISO 42001', 'RA 10173', 'Fairlearn', 'OWASP Top 10', 'Wireshark'],
+        deliverable: 'Comprehensive AI algorithmic bias audit & ethical safety dossier',
+      },
+      {
+        code: 'MIT 708',
+        title: 'Internet of Things and Embedded Systems',
+        units: 3,
+        kind: 'spec',
+        description:
+          'Low-power microcontroller programming, LoRa/LoRaWAN telemetry, environmental telemetry sensors, solar-powered edge nodes, and MQTT broker mesh.',
+        technologies: ['ESP32', 'FreeRTOS', 'LoRaWAN', 'MQTT', 'Embedded C++'],
+        deliverable: 'Solar-powered remote field telemetry node with cloud gateway link',
+      },
+      {
+        code: 'MIT 709',
+        title: 'Design Science Research in IT',
+        units: 3,
+        kind: 'spec',
+        description:
+          'Formal research methodologies for computing artifacts. Formulating design problems, systematic literature reviews, artifact design frameworks, and empirical evaluation.',
+        technologies: ['DSRM (Hevner/Peffers)', 'Zotero', 'LaTeX', 'PRISMA', 'IEEE Format'],
+        deliverable: 'Complete Capstone Proposal (Chapters 1–3) with peer-reviewed bibliography',
+      },
     ],
   },
   {
-    term: 'Summer',
-    ay: 'AY 2026–2027',
+    term: 'Summer Term',
+    ay: 'Year 1 · Summer',
     units: 3,
+    tag: 'Advanced Seminars & Comprehensive Examination',
     courses: [
-      { code: 'MIT 710', title: 'Seminar in Applied AI and Emerging Technologies', units: 3, kind: 'spec' },
-      { code: 'EXAM', title: 'Comprehensive Examination', units: 0, kind: 'milestone' },
+      {
+        code: 'MIT 710',
+        title: 'Seminar in Applied AI and Emerging Technologies',
+        units: 3,
+        kind: 'spec',
+        description:
+          'Deep dives into current breakthroughs: Generative AI, multimodal foundation models, spatial computing, edge TPU silicon, and regional industrial applications.',
+        technologies: ['LangChain', 'Ollama / vLLM', 'Edge TPU', 'Vector DBs', 'RAG'],
+        deliverable: 'Prototype demonstration and research white paper presented at symposium',
+      },
+      {
+        code: 'COMP-EXAM',
+        title: 'Comprehensive Examination',
+        units: 0,
+        kind: 'milestone',
+        description:
+          'A rigorous written examination testing mastery across Core and Specialization domains. Passing is a prerequisite to enrolling in CAPS 1.',
+        technologies: ['Core IT', 'Machine Learning', 'Systems Architecture', 'DSRM'],
+        deliverable: 'Written Comprehensive Examination Clearance Certificate',
+      },
     ],
   },
   {
-    term: 'First Trimester',
-    ay: 'AY 2027–2028',
+    term: 'Fourth Trimester',
+    ay: 'Year 2 · Trimester 1',
     units: 3,
+    tag: 'Capstone Proposal & Functional Prototype',
     courses: [
-      { code: 'CAPS 1', title: 'Capstone 1 — Capstone Proposal', units: 3, kind: 'caps' },
+      {
+        code: 'CAPS 1',
+        title: 'Capstone 1 — Proposal & Prototype Defense',
+        units: 3,
+        kind: 'caps',
+        description:
+          'Problem validation with regional industry/community stakeholders, architecture modeling using C4 diagrams, and defense of a working proof-of-concept artifact.',
+        technologies: ['System Prototype', 'C4 Architecture', 'Stakeholder Validation'],
+        deliverable: 'Approved Proposal Manuscript & Verified Working Prototype',
+      },
     ],
   },
   {
-    term: 'Second Trimester',
-    ay: 'AY 2027–2028',
+    term: 'Fifth Trimester',
+    ay: 'Year 2 · Trimester 2',
     units: 3,
+    tag: 'Full Implementation, Defense & Publication',
     courses: [
-      { code: 'CAPS 2', title: 'Capstone 2 — Implementation and Defense', units: 3, kind: 'caps' },
+      {
+        code: 'CAPS 2',
+        title: 'Capstone 2 — Production Artifact & Final Defense',
+        units: 3,
+        kind: 'caps',
+        description:
+          'Production hardening, rigorous dual-method empirical evaluation (technical benchmarking + field stakeholder deployment), and refereed journal publication.',
+        technologies: ['Production System', 'Empirical Benchmarking', 'Journal Manuscript'],
+        deliverable: 'Live Public Artifact Demonstration & Journal Acceptance Letter',
+      },
     ],
   },
 ]
 
-// The capstone journey — two courses, three defenses, one artifact.
+// Real Capstone Artifact Showcase illustrating Design Science Research in action
+export const capstoneShowcase = [
+  {
+    id: 'aquasentinel',
+    title: 'AquaSentinel: Solar Edge-AI Water Quality Sentinel',
+    stakeholder: 'Tilapia & Milkfish Fishpond Cooperatives, Banate Bay',
+    domain: 'Aquaculture & Fisheries',
+    tag: 'Edge AI + LoRaWAN',
+    problem:
+      'Sudden dissolved oxygen depletion and temperature spikes cause massive fish mortality events in brackishwater fish pens with zero advance warning.',
+    artifact:
+      'Floating solar-powered buoy featuring optical DO, pH, and salinity probes paired with an ESP32 LoRa node and an on-premise LSTM hypoxia prediction engine.',
+    techStack: ['ESP32', 'FreeRTOS', 'LoRaWAN', 'PyTorch LSTM', 'TimescaleDB', 'Grafana'],
+    evaluation:
+      '94.2% precision in forecasting nocturnal dissolved oxygen drops 3 hours in advance over a 90-day live deployment in 6 hectares of fishponds.',
+    publicationStatus: 'Published in Q2 Refereed Journal of Agricultural & Maritime Computing',
+  },
+  {
+    id: 'fishvision',
+    title: 'LandingSense: Edge Computer Vision for Marine Catch Auditing',
+    stakeholder: 'BFAR Region VI & Municipal Landing Ports',
+    domain: 'Marine Resource Management',
+    tag: 'Computer Vision',
+    problem:
+      'Manual fish tallying at municipal fish landing stations is slow, error-prone, and leads to under-reported catches of regulated pelagic species.',
+    artifact:
+      'Overhead edge-camera conveyor system running a lightweight YOLOv11 model fine-tuned on 14 commercial Philippine marine species with automated biomass estimation.',
+    techStack: ['YOLOv11', 'TensorRT', 'Raspberry Pi 5', 'FastAPI', 'PostgreSQL'],
+    evaluation:
+      '96.8% mAP@0.5 across 12,000 processed catch frames under varied natural sunlight and saltwater mist conditions.',
+    publicationStatus: 'Accepted for Publication in IEEE Xplore / Indexed International Journal',
+  },
+  {
+    id: 'mangrovesat',
+    title: 'BlueCarbonVis: Drone & Multi-Spectral Canopy Biomass Estimator',
+    stakeholder: 'PENRO Iloilo & Banate Bay Marine Protected Area',
+    domain: 'Coastal Informatics',
+    tag: 'Remote Sensing & GIS',
+    problem:
+      'Assessing blue carbon sequestration in rehabilitated mangrove zones requires hazardous manual quad-point field measurements.',
+    artifact:
+      'Automated pipeline fusing Sentinel-2 satellite imagery with high-resolution multispectral UAV orthomosaics to segment mangrove species and predict aboveground biomass.',
+    techStack: ['Python', 'QGIS', 'U-Net DeepLabV3', 'Sentinel-2 API', 'GeoTIFF'],
+    evaluation:
+      'Root Mean Square Error of 1.42 tons/ha compared against ground-truthed destructive biomass samples from 20 test plots.',
+    publicationStatus: 'Under Peer Review in International Journal of Remote Sensing',
+  },
+  {
+    id: 'smartcrop',
+    title: 'AgriForecast Panay: Geospatial Soil Health & Yield Predictor',
+    stakeholder: 'Western Visayas Rice & Corn Farmer Associations',
+    domain: 'Smart Agriculture',
+    tag: 'Data Analytics & ML',
+    problem:
+      'Unpredictable monsoon shifts and localized soil nutrient variations result in suboptimal fertilizer applications and avoidable crop losses.',
+    artifact:
+      'Spatial decision support web system combining underground moisture/NPK sensor nodes with weather station telemetry and XGBoost predictive yield models.',
+    techStack: ['XGBoost', 'PostGIS', 'React', 'FastAPI', 'Leaflet', 'Docker'],
+    evaluation:
+      'Reduced fertilizer waste by 18.5% and improved crop yield forecasting accuracy by 27% across 14 partnered farm sites.',
+    publicationStatus: 'Presented at International Conference on Precision Agriculture',
+  },
+  {
+    id: 'seafoodtrace',
+    title: 'CrabTrace: Cold-Chain Telemetry for Blue Swimming Crab Export',
+    stakeholder: 'Northern Iloilo Smallholder Crab Fisherfolk & Processors',
+    domain: 'Agricultural Value Chains',
+    tag: 'IoT Telemetry & Assurance',
+    problem:
+      'Export rejections occur when crabs exceed temperature safety thresholds during transit from coastal landing stations to processing plants.',
+    artifact:
+      'BLE temperature/humidity data loggers with tamper-evident cryptographic payload verification and instant SMS threshold alerts for transport drivers.',
+    techStack: ['Bluetooth Low Energy', 'SHA-256', 'ESP32', 'React Native', 'Node.js'],
+    evaluation:
+      '100% detection of cold-chain excursions across 45 inter-island transport routes with zero sensor failures.',
+    publicationStatus: 'Published in Asian Journal of Postharvest & Food Technology',
+  },
+]
+
+// The 6 Design Science capstone milestones
 export const capstone = [
   {
-    phase: 'CAPS 1 · weeks 1–2',
-    kind: 'Design Science · Phase 1–3',
+    phase: 'CAPS 1 · Weeks 1–3',
+    kind: 'DSRM Phase 1 & 2',
     gate: false,
-    title: 'Problem, literature & architecture',
-    body: 'Validate a real problem with actual stakeholders, review 15–25 sources, and design the artifact with C4 diagrams and justified technology decisions.',
+    title: 'Problem Identification & Stakeholder Validation',
+    body: 'Validate an authentic technical or domain problem with actual practitioners in Western Visayas. Synthesize 20+ peer-reviewed sources and define measurable artifact evaluation criteria.',
   },
   {
-    phase: 'CAPS 1 · week 3',
-    kind: 'Defense · Formative',
+    phase: 'CAPS 1 · Week 4',
+    kind: 'Formative Gate',
     gate: true,
-    title: 'Concept Defense',
-    body: 'A quality gate on the idea itself — is the problem real and the approach sound? Written feedback, no pass/fail. Catches issues before you commit to writing.',
+    title: 'Concept Defense (Quality Gate 1)',
+    body: 'Present problem validity, theoretical grounding, and architectural feasibility before the Capstone Advisory Committee. Actionable rubric feedback; prevents wasted engineering cycles.',
   },
   {
-    phase: 'CAPS 1 · weeks 4–8',
-    kind: 'Design Science · Phase 3',
+    phase: 'CAPS 1 · Weeks 5–9',
+    kind: 'DSRM Phase 3',
     gate: false,
-    title: 'Prototype & proposal document',
-    body: 'Build a working prototype with a genuine AI or data-analytics component, and complete Chapters 1–3 of the proposal.',
+    title: 'System Architecture & Working Prototype',
+    body: 'Design system with C4 architecture models, construct a working prototype demonstrating core algorithms or IoT hardware, and draft Chapters 1–3 of the proposal.',
   },
   {
-    phase: 'CAPS 1 · week 9',
-    kind: 'Defense · Summative',
+    phase: 'CAPS 1 · Week 10',
+    kind: 'Summative Gate',
     gate: true,
-    title: 'Pre-oral Defense',
-    body: 'Formal approval of the proposal. An average rating of 2.5 or better lets you proceed to CAPS 2.',
+    title: 'Pre-Oral Proposal Defense (Quality Gate 2)',
+    body: 'Defend complete proposal and demonstrate the working prototype to the committee. Requires a passing grade of 2.50 or better to clear enrollment into CAPS 2.',
   },
   {
-    phase: 'CAPS 2 · weeks 1–5',
-    kind: 'Design Science · Phase 4–5',
+    phase: 'CAPS 2 · Weeks 1–6',
+    kind: 'DSRM Phase 4 & 5',
     gate: false,
-    title: 'Build, evaluate & submit',
-    body: 'Complete the artifact, run at least two evaluation methods (technical + expert/user), and submit your paper to a refereed journal.',
+    title: 'Production Build, Empirical Testing & Journal Submission',
+    body: 'Harden the artifact into production readiness. Execute dual empirical evaluations (technical benchmarking + field usability), and submit a manuscript to a refereed journal.',
   },
   {
-    phase: 'CAPS 2 · week 9',
-    kind: 'Defense · Summative',
+    phase: 'CAPS 2 · Week 10',
+    kind: 'Final Summative Gate',
     gate: true,
-    title: 'Final Defense',
-    body: 'A public defense with a live artifact demonstration. Journal acceptance must be secured first. Pass, and you have your degree.',
+    title: 'Public Oral Defense & Live Artifact Demonstration',
+    body: 'Demonstrate the running system live before the panel and university audience. Proof of journal acceptance clears the final requirement for graduation.',
   },
 ]
 
-// Scoping guidance — helps students pick a doable capstone.
+// Scoping matrix for prospective candidates
 export const scope = {
-  headers: ['Too narrow', 'Just right', 'Too broad'],
+  headers: ['Under-Scoped', 'Ideal MIT Level', 'Over-Scoped'],
   rows: [
-    { c: 'Users', narrow: 'One person', right: 'One organization or community', broad: 'An entire province' },
-    { c: 'Features', narrow: 'One screen', right: '3–8 core features', broad: 'Enterprise system' },
-    { c: 'Data', narrow: '< 100 records', right: '500–10,000 records', broad: 'National database' },
-    { c: 'AI component', narrow: 'Simple threshold', right: 'Trained model with evaluation', broad: 'Multiple ML pipelines' },
-    { c: 'Timeline', narrow: 'Two weeks', right: 'Fills two trimesters', broad: 'Two+ years' },
+    { c: 'Users & Impact', narrow: 'Single individual / toy app', right: 'Specific cooperative, agency, or enterprise', broad: 'Entire national population' },
+    { c: 'Technical Depth', narrow: 'Basic CRUD website without AI', right: 'Trained model, edge pipeline, or distributed mesh', broad: 'Multiple concurrent novel deep learning architectures' },
+    { c: 'Dataset Scale', narrow: '< 100 sample records', right: '1,000 – 50,000 real domain records', broad: 'Petabyte-scale multi-cloud telemetry' },
+    { c: 'Evaluation', narrow: 'Basic subjective survey only', right: 'Benchmarking (latency, F1, RMSE) + field validation', broad: 'Decade-long longitudinal study' },
+    { c: 'Timeline', narrow: 'Can be built in a weekend', right: 'Fills 2 focused trimesters (6–8 months)', broad: 'Requires 4+ years of full-time team effort' },
   ],
 }
 
-// The six research frontiers (CICT Research Agenda 2026–2031).
+// Research frontiers aligned with CICT Research Agenda 2026–2031
 export const frontiers = [
-  { n: '01', icon: 'anchor', title: 'AI for Fisheries Resource Management', body: 'Computer vision and geospatial analytics for stock assessment, species ID, catch reporting, and habitat protection.' },
-  { n: '02', icon: 'wave', title: 'IoT & Sensor Systems for Aquaculture', body: 'Embedded sensing that monitors water quality, automates feeding, and issues early warnings for tilapia, seaweed, and mariculture.' },
-  { n: '03', icon: 'sprout', title: 'Data Analytics for Agricultural Value Chains', body: 'Predictive modeling across farm-to-market — disease detection, yield forecasting, price intelligence, and land-use planning.' },
-  { n: '04', icon: 'globe', title: 'Adaptive & Inclusive Digital Systems', body: 'Offline-first, low-bandwidth, and accessible technologies that reach rural and underserved communities.' },
-  { n: '05', icon: 'scale', title: 'AI Governance, Ethics & Policy', body: 'Frameworks, audits, and safeguards that keep AI fair, transparent, and accountable across the sectors ISUFST serves.' },
-  { n: '06', icon: 'compass', title: 'Maritime Digital Solutions', body: 'Blue-economy systems — maritime transport, coastal zone management, marine protected areas, and coastal-tourism informatics.' },
+  {
+    n: '01',
+    icon: 'anchor',
+    title: 'AI for Marine & Fisheries Resource Management',
+    body: 'Edge computer vision and acoustic telemetry for automated species identification, biomass estimation, illegal fishing monitoring, and coastal stock health.',
+  },
+  {
+    n: '02',
+    icon: 'wave',
+    title: 'IoT & Telemetry Systems for Smart Aquaculture',
+    body: 'Autonomous sensory buoys and low-cost embedded systems monitoring dissolved oxygen, pH, salinity, and automated feeding in brackishwater fish pens.',
+  },
+  {
+    n: '03',
+    icon: 'sprout',
+    title: 'Data Analytics for Agricultural Value Chains',
+    body: 'Spatial-temporal predictive modeling for crop disease diagnosis, soil nutrient depletion, yield forecasting, and market price stabilization.',
+  },
+  {
+    n: '04',
+    icon: 'globe',
+    title: 'Offline-First & Inclusive Regional Computing',
+    body: 'Resilient, low-bandwidth, and edge-native architectures ensuring critical digital services reach island municipalities and rural coastal communities.',
+  },
+  {
+    n: '05',
+    icon: 'scale',
+    title: 'AI Governance, Ethics & Information Assurance',
+    body: 'Frameworks, algorithmic bias auditing, and differential privacy safeguards ensuring AI systems in agriculture and governance comply with RA 10173 and ISO 42001.',
+  },
+  {
+    n: '06',
+    icon: 'compass',
+    title: 'Maritime Digital Solutions & Blue Economy',
+    body: 'Informatics for maritime safety, marine protected area telemetry, eco-tourism carrying capacity, and post-harvest cold-chain assurance.',
+  },
 ]
 
+// Interactive eligibility tracks
+export const eligibilityTracks = [
+  {
+    id: 'computing',
+    title: 'Computing Graduates',
+    degrees: 'BS in Computer Science, BS in Information Technology, BS in Information Systems, BS in Software Engineering, BS in Computer Engineering',
+    status: 'Direct Admission',
+    bridging: '0 Bridging Units',
+    timeline: '15 Months (Fast-Track) or 24 Months',
+    recommendation: 'Directly eligible to enroll in regular 36-unit MIT study plan. Full credit for all core computing coursework.',
+  },
+  {
+    id: 'engineering',
+    title: 'STEM & Engineering Allied',
+    degrees: 'BS in Electronics Engineering, BS in Electrical Engineering, BS in Applied Mathematics, BS in Statistics, BS in Data Science',
+    status: 'Admission with 1 Bridging Subject',
+    bridging: '3 Bridging Units (MIT 501: Advanced Software Engineering & Algorithms)',
+    timeline: '18–24 Months',
+    recommendation: 'Admitted into regular program alongside 1 foundational bridging module to ensure software architecture fluency.',
+  },
+  {
+    id: 'non-computing',
+    title: 'Interdisciplinary & Domain Experts',
+    degrees: 'BS in Fisheries, BS in Marine Biology, BS in Agriculture, BS in Business Administration / MIS, BS in Education (Tech Voc), Allied Sciences',
+    status: 'Admission with Bridging Cluster',
+    bridging: '6 Bridging Units (MIT 501: Programming Fundamentals + MIT 502: Database & Systems Architecture)',
+    timeline: '24 Months',
+    recommendation: 'Highly valued for deep domain expertise in aquaculture/agriculture! Complete 2 bridging subjects before or concurrently with Year 1.',
+  },
+]
+
+// Working professional executive schedule features
+export const executiveFeatures = [
+  {
+    title: 'Executive Saturday Intensive Sessions',
+    time: 'Saturdays, 8:00 AM – 5:00 PM',
+    desc: 'Core synchronous lectures and seminar discussions are consolidated onto Saturdays, allowing tech professionals and educators to maintain full-time weekday employment.',
+  },
+  {
+    title: 'HyFlex Hybrid Mode (Online + On-Campus)',
+    time: 'Flexible Delivery',
+    desc: 'Attend synchronous lectures virtually via high-definition conference links or on-campus at the CICT Innovation Amphitheater in Barotac Nuevo, Iloilo.',
+  },
+  {
+    title: 'Asynchronous Cloud Lab Workstations',
+    time: '24/7 Virtual Access',
+    desc: 'Hands-on programming and model training labs are provisioned via cloud instances and remote GPU servers, accessible whenever your schedule permits.',
+  },
+  {
+    title: 'Quarterly In-Person Innovation Bootcamps',
+    time: 'Once Per Trimester',
+    desc: 'Hands-on hardware labs (IoT sensors, microcontroller wiring, drone orthomosaic flights) during scheduled weekend intensives with faculty mentors.',
+  },
+]
+
+// Tuition & DOST STRAND financial model
+export const financialModel = {
+  selfFunded: {
+    unitCost: '₱1,200',
+    totalUnits: 36,
+    tuitionEstimate: '₱43,200',
+    miscPerTerm: '₱2,100',
+    totalProgramCost: '₱53,700',
+    notes: 'Subsidized state university rate. Payable in manageable trimester installments (~₱10,740 per term). No hidden tuition spikes.',
+  },
+  strandScholarship: {
+    totalValue: '₱500,000+',
+    monthlyStipend: '₱30,000 / month',
+    researchGrant: '₱114,000',
+    disseminationGrant: '₱75,000',
+    outrightThesisGrant: '₱60,000',
+    bookAllowance: '₱20,000 / year',
+    tuitionCoverage: '100% Fully Covered by DOST-SEI',
+    notes: 'The prestigious DOST-SEI STRAND scholarship covers 100% of all university fees and provides high-level financial support for full-time graduate study.',
+  },
+}
+
 export const admission = [
-  'Bachelor’s degree in IT, Computer Science, or a related computing field from a recognized institution',
-  'Certified true copy of Transcript of Records (TOR)',
-  'Completed School of Graduate Studies application form',
-  'Applicants from non-computing fields may be admitted with bridging subjects, subject to committee evaluation',
-  'Working fluency in Python, statistics, SQL, Git, and reading research papers is strongly recommended',
-  'Passing the School of Graduate Studies admission interview / assessment',
+  'Bachelor’s degree from a CHED-recognized higher education institution (Official Transcript of Records required)',
+  'Certified True Copy of Transcript of Records (TOR) with Special Order (SO) number or SUC exemption',
+  'Accomplished School of Graduate Studies (SGS) Graduate Admission Application Form',
+  'Two (2) Confidential Letters of Recommendation from former professors, supervisors, or department heads',
+  'Certificate of Good Moral Character or NBI Clearance',
+  'Passing the School of Graduate Studies technical assessment and panel interview',
+  'Bridging modules may be assigned for non-computing graduates upon recommendation of the admissions committee',
 ]
 
 export const careers = [
-  'AI / Machine-Learning Engineer',
-  'Data Scientist / Analyst',
-  'Systems & Solutions Architect',
-  'IT Governance & Project Lead',
-  'Public-Sector & Development-Agency Technologist',
-  'Fisheries / Agriculture Data Specialist',
-  'IT Educator & Researcher',
-  'Founder / Technical Lead',
-  'Doctor in Information Technology (DIT) candidate',
+  'AI / Machine Learning Engineer',
+  'Enterprise Solutions & Cloud Architect',
+  'Lead Data Scientist / Analytics Director',
+  'Director of Information Technology / CIO',
+  'Cybersecurity & Information Assurance Officer',
+  'Precision Agriculture & Fisheries Technologist',
+  'Assistant Professor / Senior IT Faculty',
+  'Chief Technology Officer (CTO) & Tech Founder',
+  'Doctor in Information Technology (DIT) Candidate',
 ]
 
 export const faqs = [
   {
-    q: 'Is this a thesis program?',
-    a: 'No. The MIT is completed by a two-part capstone (CAPS 1 & CAPS 2) governed by Design Science Research Methodology. Instead of a conventional thesis, you build a working technology artifact — a system, model, framework, or tool — that solves a validated real-world problem and is evaluated against genuine requirements.',
+    q: 'How does the Capstone Project differ from a traditional Thesis?',
+    a: 'Unlike a conventional Master of Science (MS) thesis which focuses predominantly on theoretical discovery, the Master in Information Technology (MIT) requires a demonstrable technological artifact — a working software platform, embedded IoT system, machine learning model, or enterprise architecture. You design, build, and empirically evaluate this system using Design Science Research Methodology (DSRM).',
   },
   {
-    q: 'How long does it take to finish?',
-    a: 'Coursework spans the three trimesters and summer of the first academic year; the comprehensive examination is taken at the close of the summer term; and the two-part capstone runs across the first and second trimesters of the second academic year. Maximum residency is five (5) years from first enrolment.',
+    q: 'Can I complete this program while working full-time?',
+    a: 'Yes. The MIT is structured specifically for practicing IT professionals, software engineers, government technologists, and collegiate faculty. Synchronous lectures are held on Saturdays in a HyFlex format (combining live virtual attendance with on-campus access), supplemented by asynchronous cloud-hosted lab environments that you can access 24/7.',
   },
   {
-    q: 'Do I really have to publish?',
-    a: 'Yes. At least one paper drawn from your work must be accepted for publication in an internationally refereed journal — this is required by CHED CMO 15 s. 2019 and is a precondition to scheduling your final defense and to graduation. Plan for it from CAPS 1.',
+    q: 'What is the publication requirement for graduation?',
+    a: 'Pursuant to CHED CMO 15 s.2019 and ISUFST graduate regulations, every candidate must have at least one paper derived from their capstone research accepted for publication in an internationally refereed journal (Scopus, Web of Science, or CHED-recognized peer-reviewed index) before scheduling the final defense.',
   },
   {
-    q: 'What is the comprehensive examination?',
-    a: 'A written examination across your core and specialization coursework, taken at the close of the Summer term of Year 1. Passing it is required before you may enrol in the capstone.',
+    q: 'What if my undergraduate degree is in Engineering, Business, or Science?',
+    a: 'You are welcome to apply! The School of Graduate Studies evaluates applicants from non-computing disciplines individually. Depending on your transcript, you will be assigned 1 to 2 bridging subjects (such as MIT 501: Advanced Programming & Algorithms) which you complete alongside or prior to regular coursework.',
   },
   {
-    q: 'What does the specialization mean for my capstone?',
-    a: 'Your capstone must address an authentic problem in fisheries, aquaculture, agriculture, the blue economy, or a related domain within the Philippine context — preferably in Western Visayas — validated with actual stakeholders, with AI, analytics, or IoT as a core component.',
+    q: 'How does the DOST-SEI STRAND scholarship work?',
+    a: 'The DOST-SEI STRAND program provides comprehensive funding for graduate students in regional STEM priority fields. Qualified scholars receive full tuition coverage, a ₱30,000 monthly living stipend, ₱114,000 research grant, ₱75,000 dissemination grant, and book allowances. Recipients render return service in the Philippines upon graduation.',
   },
   {
-    q: 'Do I need a computing degree to apply?',
-    a: 'A bachelor’s degree in IT, Computer Science, or a closely related field is preferred. Applicants from other fields may be admitted with bridging subjects, subject to evaluation by the School of Graduate Studies.',
+    q: 'What hardware or computing resources does ISUFST provide?',
+    a: 'Students have access to the CICT Advanced Computing Laboratory at the Main-Poblacion Campus, featuring high-performance GPU workstations for deep learning workloads, microcontroller prototyping benches, water quality optical test rigs, and cloud compute credits for coursework.',
   },
 ]
 
 export const contact = {
-  office: 'School of Graduate Studies · CICT',
-  address: 'ISUFST, Main-Poblacion Campus, Barotac Nuevo, Iloilo, Philippines',
+  office: 'School of Graduate Studies · College of Information and Communications Technology',
+  address: 'ISUFST Main-Poblacion Campus, J.T. Bretaña St., Barotac Nuevo, Iloilo 5007, Philippines',
   email: 'sgs@isufst.edu.ph',
   phone: '(+63) 917-624-6100',
-  hours: 'Mon–Fri, 8:00 AM – 5:00 PM',
+  landline: '(033) 361-2401',
+  hours: 'Monday – Friday, 8:00 AM – 5:00 PM PHT · Saturday Graduate Office Desk Open',
 }
 
-// ── Faculty ──────────────────────────────────────────────────────────
-// PLACEHOLDER DATA — replace with the actual roster before publishing.
-// `photo` is optional: add an image path (e.g. '/faculty/name.jpg') once
-// photos are available; the Avatar component falls back to initials.
 export type FacultyMember = {
   name: string
   title: string
@@ -295,162 +627,178 @@ export type FacultyMember = {
   specialization: string
   email?: string
   photo?: string
+  researchInterests?: string[]
+  courses?: string[]
 }
 
 export const leadership: FacultyMember[] = [
   {
     name: 'Dr. Noel P. Caliston',
-    title: 'Dean',
+    title: 'Dean, College of Information & Communications Technology',
     degree: 'DIT — Doctor in Information Technology',
-    specialization: 'AI and Machine Learning',
+    specialization: 'Artificial Intelligence, Machine Learning & Academic Leadership',
     photo: '/faculty/caliston-noel.png',
+    email: 'ncaliston@isufst.edu.ph',
+    researchInterests: ['Applied Deep Learning', 'Algorithmic Optimization', 'Higher Education Tech Leadership'],
+    courses: ['MIT 705 — Artificial Intelligence & Machine Learning', 'CAPS 1 & 2 Advising'],
   },
   {
     name: 'Dr. Jassiel I. Padios',
-    title: 'Program Chair',
+    title: 'Program Chair, Master in Information Technology',
     degree: 'DIT — Doctor in Information Technology',
-    specialization: 'AI, Data Management and Analytics',
+    specialization: 'Artificial Intelligence, Data Analytics & Enterprise Database Systems',
     photo: '/faculty/padios-jassiel.png',
+    email: 'jpadios@isufst.edu.ph',
+    researchInterests: ['Data Engineering', 'Predictive Modeling', 'Spatial Database Architecture'],
+    courses: ['MIT 702 — Data Management & Analytics', 'MIT 706 — Data Mining & Predictive Modeling'],
   },
 ]
 
 export const facultyMembers: FacultyMember[] = [
   {
     name: 'Dr. John Rey A. Alipe',
-    title: 'Instructor III',
+    title: 'Instructor III & Lab Lead',
     degree: 'DIT — Doctor in Information Technology',
-    specialization: 'Cloud Infrastructure, IoT',
+    specialization: 'Cloud Infrastructure, IoT & Embedded Systems',
     photo: '/faculty/alipe-johnrey.png',
+    email: 'jalipe@isufst.edu.ph',
+    researchInterests: ['LoRaWAN Sensory Mesh', 'Edge Computing', 'Virtualization Clusters'],
+    courses: ['MIT 701 — Cloud Infrastructure', 'MIT 708 — Internet of Things'],
   },
   {
     name: 'Dr. Angie C. Almarza',
     title: 'Assistant Professor II',
     degree: 'DIT — Doctor in Information Technology',
-    specialization: 'Design Science Research, IT Project Management',
+    specialization: 'Design Science Research, IT Project Management & Governance',
     photo: '/faculty/almarza-angie.png',
+    email: 'aalmarza@isufst.edu.ph',
+    researchInterests: ['Design Science Research Methodology (DSRM)', 'ITIL 4 Alignment', 'COBIT Governance'],
+    courses: ['MIT 704 — IT Project Management', 'MIT 709 — Design Science Research in IT'],
   },
   {
     name: 'Dr. Renante A. Diamante',
     title: 'Associate Professor IV',
     degree: 'DIT — Doctor in Information Technology',
-    specialization: 'Data Mining and Predictive Modelling',
+    specialization: 'Data Mining, Predictive Analytics & Neural Architectures',
     photo: '/faculty/diamante-renante.png',
+    email: 'rdiamante@isufst.edu.ph',
+    researchInterests: ['Supervised Learning', 'Agricultural Informatics', 'Spatial Predictive Modeling'],
+    courses: ['MIT 706 — Data Mining & Predictive Modeling', 'MIT 710 — Emerging AI Seminars'],
   },
   {
     name: 'Ram Eujohn Diamante, MIT',
-    title: 'Instructor III',
-    degree: 'DIT — Doctor in Information Technology (ongoing)',
-    specialization: 'Machine Learning',
+    title: 'Instructor III & Systems Engineer',
+    degree: 'DIT Candidate · Master in Information Technology',
+    specialization: 'Applied Machine Learning, Computer Vision & Edge Systems',
+    email: 'rediamante@isufst.edu.ph',
+    researchInterests: ['Computer Vision (YOLO/TFLite)', 'Edge Silicon Acceleration', 'Open Source Tooling'],
+    courses: ['MIT 705 — Applied Machine Learning Labs', 'CAPS Technical Mentorship'],
   },
   {
     name: 'Dr. Wenda D. Panes',
     title: 'Professor V',
-    degree: 'DIT — Doctor in Information Technology (ongoing)',
-    specialization: 'AI Governance and IT Infrastructure',
+    degree: 'DIT Candidate · Master in Information Technology',
+    specialization: 'AI Governance, Information Assurance & Enterprise Architecture',
+    email: 'wpanes@isufst.edu.ph',
+    researchInterests: ['Information Security Assurance', 'Data Privacy Law (RA 10173)', 'Enterprise Resilience'],
+    courses: ['MIT 703 — IT Infrastructure Management', 'MIT 707 — AI Governance & Ethics'],
   },
 ]
 
-// ── DOST-SEI STRAND Scholarship ─────────────────────────────────────
-// Science and Technology Regional Alliance of Universities for National
-// Development (STRAND) — DOST Science Education Institute graduate
-// scholarship program. Content reflects the publicly published STRAND
-// program guidelines; always confirm current cycle details with the
-// DOST-SEI STRAND focal office before applying.
+// DOST-SEI STRAND Scholarship Detailed Data
 export const scholarship = {
-  name: 'DOST-SEI STRAND Graduate Scholarship',
+  name: 'DOST-SEI STRAND Graduate Scholarship Program',
   abbrev: 'STRAND',
   agency: 'Department of Science and Technology — Science Education Institute (DOST-SEI)',
   tagline:
-    'Full financial support for Master\u2019s studies in Science, Technology, Engineering, and Mathematics (STEM) priority fields — including Information Technology.',
+    'Full financial sponsorship, monthly living stipends, and research funding for Master’s candidates in Science and Technology priority fields.',
   description:
-    'The Science and Technology Regional Alliance of Universities for National Development (STRAND) strengthens the faculty profile of regional universities by granting Master\u2019s-level graduate scholarships in identified STEM niche fields, while training high-level human resources for research and development in the regions. At ISUFST, STRAND supports the Master in Information Technology (MIT) program.',
+    'The Science and Technology Regional Alliance of Universities for National Development (STRAND) strengthens the scientific and technical capabilities of regional institutions across the Philippines. At ISUFST, STRAND directly finances qualified scholars pursuing the Master in Information Technology (MIT) degree in regional priority areas.',
 }
 
 export const scholarshipEligibility = [
-  'Filipino citizen',
+  'Filipino citizen of good moral character and certified physical health',
   'Not more than 50 years old at the time of application',
-  'In good health condition and of good moral character',
-  'Must pass the admission requirements for the Master\u2019s program at a STRAND member university',
-  'Must pass the STRAND interview and screening procedure',
-  'Must be pursuing a Master\u2019s degree in a STEM priority field, such as the Master in Information Technology',
+  'Must meet the admission requirements for the Master in Information Technology program at ISUFST',
+  'Must successfully pass the DOST-SEI STRAND technical interview and university evaluation',
+  'Pursuing full-time study in an identified STEM priority area (Information Technology / Applied AI)',
+  'Must have no existing scholarship or study grant with another government agency or private institution',
 ]
 
 export const scholarshipRequirements = [
-  'Accomplished STRAND Information Sheet (available from the School of Graduate Studies office)',
-  'Photocopy of Birth Certificate',
-  'Certified True Copy of the Official Transcript of Records',
-  'Endorsement from two (2) former professors in college',
-  'Letter of Admission with regular status from the Program Head, including the evaluation sheet',
-  'Approved Program of Study',
-  'Valid NBI Clearance',
-  'Medical Certificate of good health, fit to study, from a licensed physician (with PRC license number)',
+  'Accomplished STRAND Information Sheet (available through the School of Graduate Studies office)',
+  'PSA Authenticated Birth Certificate',
+  'Certified True Copy of Official Transcript of Records (TOR) with GWA computation',
+  'Endorsement from two (2) former college professors or technical supervisors',
+  'Official Notice of Admission (Regular Status) from the ISUFST SGS Graduate Dean',
+  'Approved Program of Study signed by the MIT Program Chair',
+  'Valid NBI Clearance (issued within the last 6 months)',
+  'Medical Certificate of Fitness to Study issued by a licensed physician with PRC license number',
 ]
 
 export const scholarshipIfEmployed = [
-  'Recommendation from employer or head of agency',
-  'Form 2A — Certificate of Employment and Permit to Study',
-  'Form 2B — Certificate of DepEd Employment and Permit to Study (DepEd employees only)',
-  'Form A — Career Plans',
-  'Form B — Research Plans',
-  'Form 3 — Certification of Health Status',
+  'Official Written Recommendation from Head of Agency or Company Executive',
+  'Form 2A — Certificate of Employment and Official Permit to Study',
+  'Form 2B — Certificate of DepEd Employment and Permit to Study (for DepEd Personnel)',
+  'Form A — Professional Career Plans & Five-Year Trajectory',
+  'Form B — Proposed Graduate Research Direction & Regional Problem Statement',
+  'Form 3 — Official Agency Certification of Health Status and Physical Capacity',
 ]
 
-// STRAND at ISUFST is offered for the Master's level only.
 export const scholarshipBenefits = {
-  level: 'Master\u2019s',
-  duration: 'Full support for the duration of the MIT program',
+  level: 'Master’s Level Support',
+  duration: 'Full coverage for the duration of the 36-unit trimestral program (up to 24 months)',
   amounts: [
-    { label: 'Monthly stipend', amount: '₱30,000' },
-    { label: 'Learning materials allowance', amount: '₱20,000' },
-    { label: 'Thesis outright allowance', amount: '₱60,000' },
-    { label: 'Research grant', amount: '₱114,000' },
-    { label: 'Dissemination grant', amount: '₱75,000' },
-    { label: 'Mentor\u2019s fee', amount: '₱36,000' },
+    { label: 'Monthly Living Allowance', amount: '₱30,000 / mo', detail: 'Up to ₱720,000 total stipend over 2 years' },
+    { label: 'Research & Capstone Grant', amount: '₱114,000', detail: 'Directly funds hardware, sensors, cloud compute, and field data collection' },
+    { label: 'Dissemination / Conference Grant', amount: '₱75,000', detail: 'Sponsors presentation and travel to internationally refereed academic conferences' },
+    { label: 'Thesis / Capstone Outright Allowance', amount: '₱60,000', detail: 'Disbursed upon successful pre-oral proposal defense' },
+    { label: 'Learning Materials & Book Allowance', amount: '₱20,000 / yr', detail: 'Allocated for textbooks, research paper access, and dev tools' },
+    { label: 'Advisory / Mentor’s Honorarium', amount: '₱36,000', detail: 'Compensates the approved capstone chair and panel committee' },
   ],
   notes: [
-    'Actual tuition and other school fees',
-    'One economy roundtrip transportation allowance per year (if studying outside home province)',
-    'Premium group accident and health insurance',
+    '100% full coverage of university tuition, laboratory, and miscellaneous registration fees',
+    'One roundtrip economy transportation allowance per year for candidates residing outside Iloilo province',
+    'Comprehensive Group Accident and Hospitalization Health Insurance policy coverage',
   ],
 }
 
 export const scholarshipSteps = [
   {
     step: '01',
-    title: 'Secure admission',
-    body: 'Apply and gain admission to the MIT graduate program at a STRAND member university, such as ISUFST, before or alongside your scholarship application.',
+    title: 'Secure University Admission',
+    body: 'Apply and receive an official Certificate of Admission to the Master in Information Technology program at ISUFST.',
   },
   {
     step: '02',
-    title: 'Submit application & documents',
-    body: 'Prepare the complete STRAND documentary requirements and submit them to the university\u2019s DOST-SEI STRAND focal office.',
+    title: 'Assemble STRAND Dossier',
+    body: 'Complete the STRAND application forms, compile endorsements, TOR, medical certificate, and submit to the ISUFST STRAND Focal Office.',
   },
   {
     step: '03',
-    title: 'University evaluation',
-    body: 'The university evaluates your accomplished application form and requirements for completeness and eligibility.',
+    title: 'University Evaluation & Interview',
+    body: 'The graduate committee reviews your dossier for technical readiness and conducts the formal scholarship screening interview.',
   },
   {
     step: '04',
-    title: 'SEI validation & selection',
-    body: 'DOST-SEI validates submissions and selects qualifiers based on merit and available slots.',
+    title: 'DOST-SEI National Validation',
+    body: 'Submissions are forwarded to the DOST Science Education Institute in Manila for final merit evaluation and slot allocation.',
   },
   {
     step: '05',
-    title: 'DOST Secretary approval',
-    body: 'The final list of awardees is approved by the DOST Secretary. This list is final and unappealable.',
+    title: 'DOST Secretary Confirmation',
+    body: 'The official list of approved graduate scholars is signed by the Secretary of Science and Technology.',
   },
   {
     step: '06',
-    title: 'Notification & scholarship agreement',
-    body: 'Approved awardees are notified and execute a Scholarship Agreement with DOST before enrollment begins.',
+    title: 'Scholarship Agreement Execution',
+    body: 'Awardees execute the official Scholarship Memorandum of Agreement and begin fully sponsored trimestral graduate coursework.',
   },
 ]
 
 export const scholarshipReminders = [
-  'The award is for full-time graduate study only, to ensure on-time completion.',
-  'Scholars must not be employed or practicing their profession while on scholarship, unless on an approved official leave of absence.',
-  'Academic performance is evaluated every term to determine continued scholarship status.',
-  'A return service obligation applies after graduation — typically one year of service in the Philippines for every year of scholarship received.',
-  'Refund of the scholarship grant, with interest, may be required for non-completion of the program or failure to render the service obligation.',
+  'STRAND awards are dedicated to full-time graduate study to ensure on-time graduation within 24 months.',
+  'Recipients must not be actively engaged in concurrent paid employment unless on an officially approved study leave from their employer.',
+  'Satisfactory academic performance (GWA of 1.75 or better with no failing grade) is required for continued term renewal.',
+  'A standard return service obligation of 1:1 applies — one year of professional or academic service in the Philippines per year of scholarship.',
 ]

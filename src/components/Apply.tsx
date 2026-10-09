@@ -1,80 +1,94 @@
+import { useState } from 'react'
 import { contact, program } from '../data'
 import Icon from './Icon'
 import Reveal from './Reveal'
+import InquiryModal from './InquiryModal'
 
 const details = [
-  { icon: 'pin', label: contact.office, value: contact.address },
-  { icon: 'mail', label: 'Email', value: contact.email, href: `mailto:${contact.email}` },
-  { icon: 'phone', label: 'Phone', value: contact.phone },
-  { icon: 'clock', label: 'Office hours', value: contact.hours },
+  { icon: 'pin', label: 'Campus Office', value: contact.office, sub: contact.address },
+  { icon: 'mail', label: 'Graduate Admissions', value: contact.email, href: `mailto:${contact.email}`, sub: 'Direct inquiries & PDF submissions' },
+  { icon: 'phone', label: 'Telephone / Mobile', value: `${contact.phone} · ${contact.landline}`, sub: 'SGS Helpdesk' },
+  { icon: 'clock', label: 'Office Hours', value: contact.hours, sub: 'In-person & online consultation' },
 ]
 
 export default function Apply() {
+  const [modalOpen, setModalOpen] = useState(false)
+
   return (
-    <section id="apply" className="py-16 sm:py-20">
-      <div className="container-page">
-        <Reveal variant="scale">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-[#0d1f4a] px-6 py-14 text-white shadow-2xl shadow-navy-900/30 sm:px-12 sm:py-16">
-            <div className="absolute inset-0 bg-grid opacity-20" />
-            <div className="bg-noise absolute inset-0 opacity-40" />
-            <div className="animate-orb absolute -right-20 -top-20 h-72 w-72 rounded-full bg-teal-500/15 blur-[80px]" />
-            <div className="animate-orb-reverse absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-navy-500/25 blur-[80px]" />
+    <>
+      <section id="apply" className="py-16 sm:py-24 bg-slate-50/60 dark:bg-navy-950/40">
+        <div className="container-page">
+          <Reveal variant="scale">
+            <div className="relative overflow-hidden rounded-[2.5rem] bg-navy-950 px-6 py-14 text-white shadow-2xl sm:px-12 sm:py-16">
+              <div className="absolute inset-0 bg-grid opacity-20" />
+              <div className="bg-noise absolute inset-0 opacity-40" />
 
-            <div className="relative grid gap-12 lg:grid-cols-2 lg:items-center">
-              <div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-teal-400/20 bg-teal-400/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-teal-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
-                  Apply
-                </span>
-                <h2 className="mt-5 font-display text-3xl font-bold text-balance sm:text-4xl lg:text-[2.75rem]">
-                  Ready to advance your{' '}
-                  <span className="gradient-text">IT career</span>?
-                </h2>
-                <p className="mt-5 max-w-md text-lg text-navy-100/75">
-                  Applications for the {program.abbrev} program are welcome each semester. Take the
-                  next step toward a graduate degree from {program.universityAbbrev}.
-                </p>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <a
-                    href={`mailto:${contact.email}?subject=MIT%20Program%20Inquiry`}
-                    className="shine group inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-teal-500 to-teal-400 px-7 py-4 text-base font-semibold text-white shadow-xl shadow-teal-500/25 transition-all hover:shadow-2xl hover:shadow-teal-500/30"
-                  >
-                    Inquire About Admission
-                    <Icon name="arrow" className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1.5" />
-                  </a>
+              <div className="relative grid gap-12 lg:grid-cols-2 lg:items-center">
+                <div>
+                  <span className="font-mono text-xs font-bold uppercase tracking-widest text-amber-400">
+                    School of Graduate Studies · Intake
+                  </span>
+                  <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                    Take the Next Step in Your <span className="font-serif italic font-normal text-amber-400">Computing Career</span>
+                  </h2>
+                  <p className="mt-4 max-w-lg text-base leading-relaxed text-slate-300">
+                    Applications for the {program.abbrev} program are reviewed on a rolling basis for {program.academicYear}. Elevate your credentials with a CHED-recognized, DOST-accredited degree.
+                  </p>
+
+                  <div className="mt-8 flex flex-wrap gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setModalOpen(true)}
+                      className="inline-flex items-center gap-2 rounded-xl bg-amber-500 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-navy-950 shadow-lg shadow-amber-500/20 hover:bg-amber-400 transition-all"
+                    >
+                      Submit Online Inquiry
+                      <Icon name="arrow" className="h-4 w-4" />
+                    </button>
+
+                    <a
+                      href={`mailto:${contact.email}?subject=MIT%20Application%20Inquiry%20-%20AY%202026-2027`}
+                      className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-white/10 transition-all"
+                    >
+                      Email Graduate Office
+                    </a>
+                  </div>
                 </div>
-              </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                {details.map((d, i) => {
-                  const inner = (
-                    <>
-                      <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-teal-400 transition-all duration-300 group-hover:bg-teal-500/20 group-hover:scale-110">
-                        <Icon name={d.icon} className="h-5 w-5" />
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {details.map((d) => (
+                    <div
+                      key={d.label}
+                      className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm"
+                    >
+                      <div className="grid h-9 w-9 place-items-center rounded-xl bg-white/10 text-amber-400">
+                        <Icon name={d.icon} className="h-4 w-4" />
                       </div>
-                      <div className="mt-3 text-xs font-semibold uppercase tracking-wide text-navy-200/80">
+                      <div className="mt-3 font-mono text-[11px] font-bold uppercase tracking-wider text-slate-400">
                         {d.label}
                       </div>
-                      <div className="mt-1 text-sm font-medium text-white">{d.value}</div>
-                    </>
-                  )
-                  const cls =
-                    'group rounded-2xl border border-white/10 bg-white/5 p-5 transition-all duration-300 hover:border-teal-400/30 hover:bg-white/10 hover:-translate-y-0.5'
-                  return d.href ? (
-                    <a key={d.label} href={d.href} className={cls} style={{ transitionDelay: `${i * 50}ms` }}>
-                      {inner}
-                    </a>
-                  ) : (
-                    <div key={d.label} className={cls}>
-                      {inner}
+                      <div className="mt-1 text-xs font-semibold text-white">
+                        {d.href ? (
+                          <a href={d.href} className="hover:text-amber-400 transition-colors">
+                            {d.value}
+                          </a>
+                        ) : (
+                          d.value
+                        )}
+                      </div>
+                      <div className="mt-1 text-[11px] text-slate-400">
+                        {d.sub}
+                      </div>
                     </div>
-                  )
-                })}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Inquiry Dialog */}
+      <InquiryModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+    </>
   )
 }

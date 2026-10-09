@@ -7,35 +7,44 @@ export default function Research() {
   return (
     <Section
       id="research"
-      className="bg-white dark:bg-navy-950/50"
-      eyebrow="Research Frontiers"
-      title="Where your capstone can make impact"
-      intro="Aligned with the CICT Research Agenda 2026–2031 — six frontiers where applied AI and data analytics meet fisheries, agriculture, and the blue economy."
+      className="bg-slate-50/70 py-16 dark:bg-navy-950/40 sm:py-24"
+      eyebrow="Regional Research Agenda"
+      title={
+        <>
+          Applied Computing for the <span className="font-serif italic font-normal text-teal-600 dark:text-teal-400">Blue Economy</span>
+        </>
+      }
+      intro="Aligned directly with the CICT Research Agenda 2026–2031 — six strategic frontiers where applied machine learning, IoT, and data analytics transform agriculture, fisheries, and rural communities."
     >
-      <div className="grid min-w-0 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto max-w-5xl grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {frontiers.map((f, i) => (
           <Reveal
             key={f.n}
-            delay={i * 0.06}
+            delay={i * 0.05}
             variant="scale"
-            className="gradient-border group relative overflow-hidden rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-500/5 dark:hover:shadow-teal-500/10"
+            className="group relative flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal-400/50 hover:shadow-lg dark:border-white/10 dark:bg-navy-900/60"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-teal-500/0 to-navy-500/0 transition-all duration-500 group-hover:from-teal-500/[0.04] group-hover:to-navy-500/[0.04]" />
-            <div className="relative">
-              <div className="flex items-center gap-3">
-                <span className="font-display text-sm font-bold text-teal-500/60 dark:text-teal-400/50">
-                  {f.n}
+            <div>
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs font-bold text-teal-600 dark:text-teal-400">
+                  Frontier {f.n}
                 </span>
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-navy-50 to-navy-100/80 text-navy-700 transition-all duration-400 group-hover:from-teal-500 group-hover:to-teal-400 group-hover:text-white dark:from-white/10 dark:to-white/5 dark:text-teal-300">
-                  <Icon name={f.icon} className="h-5 w-5" />
+                <div className="grid h-8 w-8 place-items-center rounded-lg bg-teal-500/10 text-teal-700 dark:bg-teal-400/10 dark:text-teal-300">
+                  <Icon name={f.icon} className="h-4 w-4" />
                 </div>
               </div>
-              <h3 className="mt-4 font-display text-base font-bold text-navy-900 dark:text-white">
+
+              <h3 className="mt-4 font-display text-base font-bold text-navy-950 dark:text-white">
                 {f.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-navy-100/65">
+
+              <p className="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
                 {f.body}
               </p>
+            </div>
+
+            <div className="mt-6 border-t border-slate-100 pt-3 text-[11px] font-semibold text-slate-400 dark:border-white/5 dark:text-slate-500">
+              CICT Research Agenda 2026–2031 Priority Area
             </div>
           </Reveal>
         ))}

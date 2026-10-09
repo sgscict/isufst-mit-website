@@ -1,9 +1,12 @@
 import Hero from '../components/Hero'
 import About from '../components/About'
 import Highlights from '../components/Highlights'
-import Curriculum from '../components/Curriculum'
+import EligibilityChecker from '../components/EligibilityChecker'
+import CurriculumExplorer from '../components/CurriculumExplorer'
+import CapstoneShowcase from '../components/CapstoneShowcase'
+import ScheduleModality from '../components/ScheduleModality'
+import InvestmentCalculator from '../components/InvestmentCalculator'
 import Graduate from '../components/Graduate'
-import Capstone from '../components/Capstone'
 import Research from '../components/Research'
 import Admission from '../components/Admission'
 import FAQ from '../components/FAQ'
@@ -15,9 +18,12 @@ export default function Home() {
       <Hero />
       <About />
       <Highlights />
-      <Curriculum />
+      <EligibilityChecker />
+      <CurriculumExplorer />
+      <CapstoneShowcase />
+      <ScheduleModality />
+      <InvestmentCalculator />
       <Graduate />
-      <Capstone />
       <Research />
       <Admission />
       <FAQ />

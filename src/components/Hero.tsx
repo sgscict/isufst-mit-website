@@ -1,128 +1,105 @@
+import { useState } from 'react'
 import { program, heroStats } from '../data'
 import Icon from './Icon'
-import { useCountUp } from '../hooks/useCountUp'
-import { useParallax } from '../hooks/useParallax'
-
-function StatCounter({ value, label }: { value: string; label: string }) {
-  const numMatch = value.match(/^(\d+)/)
-  const { ref, display } = useCountUp({
-    end: numMatch ? parseInt(numMatch[1], 10) : 0,
-    suffix: numMatch ? value.slice(numMatch[1].length) : '',
-  })
-
-  if (!numMatch) {
-    return (
-      <div className="text-center">
-        <dt className="font-display text-3xl font-bold text-teal-400 sm:text-4xl">{value}</dt>
-        <dd className="mt-1 text-sm text-navy-100/80">{label}</dd>
-      </div>
-    )
-  }
-
-  return (
-    <div className="text-center">
-      <dt ref={ref} className="font-display text-3xl font-bold text-teal-400 sm:text-4xl">
-        {display}
-      </dt>
-      <dd className="mt-1 text-sm text-navy-100/80">{label}</dd>
-    </div>
-  )
-}
+import InquiryModal from './InquiryModal'
 
 export default function Hero() {
-  const orb1 = useParallax(0.35)
-  const orb2 = useParallax(0.2)
-  const orb3 = useParallax(0.15)
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
-    <section id="top" className="relative min-h-screen overflow-hidden bg-navy-950 text-white">
-      {/* Animated backdrop */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-[#0d1f4a]" />
-      <div className="absolute inset-0 bg-grid opacity-30" />
-      <div className="bg-noise absolute inset-0 opacity-60" />
+    <>
+      <section
+        id="top"
+        className="relative overflow-hidden bg-gradient-to-b from-navy-950 via-navy-900 to-[#071328] pt-28 pb-16 text-white sm:pt-36 sm:pb-24 lg:pt-40"
+      >
+        {/* Subtle architectural grid pattern */}
+        <div className="absolute inset-0 bg-grid opacity-30" />
+        <div className="bg-noise absolute inset-0 opacity-40" />
 
-      <div ref={orb1} className="animate-orb absolute -left-40 top-20 h-[500px] w-[500px] rounded-full bg-teal-500/15 blur-[100px] 2xl:h-[640px] 2xl:w-[640px]" />
-      <div ref={orb2} className="animate-orb-reverse absolute -right-32 top-1/3 h-[450px] w-[450px] rounded-full bg-navy-500/25 blur-[100px] 2xl:h-[580px] 2xl:w-[580px]" />
-      <div ref={orb3} className="animate-orb absolute bottom-0 left-1/3 h-[350px] w-[350px] rounded-full bg-teal-400/10 blur-[80px] 2xl:h-[450px] 2xl:w-[450px]" />
-
-      <div className="container-page relative flex min-h-screen flex-col justify-center pt-28 pb-32 lg:pt-32">
-        <div className="mx-auto max-w-3xl text-center">
-          <div
-            className="animate-enter-up inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-navy-100 backdrop-blur-sm"
-            style={{ animationDelay: '0.1s' }}
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-400" />
-            </span>
-            {program.badge}
-          </div>
-
-          <h1
-            className="animate-enter-up mx-auto mt-7 font-display text-[2.75rem] font-bold leading-[1.05] text-balance sm:text-6xl lg:text-[4rem] 2xl:text-[4.5rem]"
-            style={{ animationDelay: '0.2s' }}
-          >
-            Master in{' '}
-            <span className="gradient-text">Information Technology</span>
-          </h1>
-
-          <p
-            className="animate-enter-up mt-5 text-lg font-medium text-teal-300/90 sm:text-xl"
-            style={{ animationDelay: '0.3s' }}
-          >
-            Specialization — {program.specialization}
-          </p>
-
-          <p
-            className="animate-enter-up mx-auto mt-5 max-w-xl text-lg leading-relaxed text-navy-100/75"
-            style={{ animationDelay: '0.4s' }}
-          >
-            {program.tagline}
-          </p>
-
-          <div
-            className="animate-enter-up mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
-            style={{ animationDelay: '0.5s' }}
-          >
-            <a
-              href="#graduate"
-              className="shine group inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-teal-500 to-teal-400 px-7 py-4 text-base font-semibold text-white shadow-xl shadow-teal-500/25 transition-all hover:shadow-2xl hover:shadow-teal-500/30"
-            >
-              How you graduate
-              <Icon name="arrow" className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1.5" />
-            </a>
-            <a
-              href="#curriculum"
-              className="group inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-7 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10"
-            >
-              Explore the curriculum
-            </a>
-          </div>
-
-          <dl
-            className="animate-enter-up mx-auto mt-16 grid max-w-xl grid-cols-3 gap-6 border-t border-white/10 pt-10"
-            style={{ animationDelay: '0.65s' }}
-          >
-            {heroStats.map((s) => (
-              <StatCounter key={s.l} value={s.v} label={s.l} />
-            ))}
-          </dl>
+        {/* University seal watermark */}
+        <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 opacity-5 sm:h-[32rem] sm:w-[32rem]">
+          <img src="/isufst-logo.png" alt="" className="h-full w-full object-contain" />
         </div>
 
-        {/* Scroll indicator */}
-        <a
-          href="#about"
-          className="animate-scroll-bounce absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-navy-200/60 transition-colors hover:text-white"
-          aria-label="Scroll to content"
-        >
-          <span className="text-xs font-medium uppercase tracking-widest">Scroll</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5">
-            <path strokeLinecap="round" d="M12 5v14M5 12l7 7 7-7" />
-          </svg>
-        </a>
-      </div>
+        <div className="container-page relative">
+          <div className="mx-auto max-w-4xl text-center">
+            {/* Accreditation Badge Ribbon */}
+            <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold backdrop-blur-md">
+              <span className="flex h-2 w-2 rounded-full bg-emerald-400" />
+              <span className="text-slate-200">Republic of the Philippines</span>
+              <span className="text-white/30">•</span>
+              <span className="text-amber-300 font-bold">PQF Level 7 Master’s</span>
+              <span className="text-white/30">•</span>
+              <span className="text-teal-300">CHED CMO 15 s.2019</span>
+            </div>
 
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#f4f6fb] to-transparent dark:from-[#060e1f]" />
-    </section>
+            {/* Main Degree Title */}
+            <h1 className="mt-7 font-display text-4xl font-normal tracking-tight text-white sm:text-5xl lg:text-6xl text-balance">
+              Master in <span className="font-serif italic text-amber-400">Information Technology</span>
+            </h1>
+
+            {/* Specialization Tagline */}
+            <div className="mt-4 inline-block rounded-xl border border-teal-500/30 bg-teal-500/10 px-4 py-2 text-sm font-semibold text-teal-300">
+              Specialization in Applied AI and Data Analytics for Fisheries and Agriculture
+            </div>
+
+            {/* Value Proposition */}
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+              {program.tagline}
+            </p>
+
+            {/* Action Buttons */}
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a
+                href="#eligibility"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-amber-500 px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-navy-950 shadow-lg shadow-amber-500/20 transition-all hover:bg-amber-400 hover:shadow-xl hover:shadow-amber-500/30"
+              >
+                Check Admission Eligibility
+                <Icon name="arrow" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
+
+              <a
+                href="#curriculum"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/30"
+              >
+                Explore 36-Unit Curriculum
+              </a>
+
+              <button
+                type="button"
+                onClick={() => setModalOpen(true)}
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-white underline decoration-amber-400/50 underline-offset-4 py-2"
+              >
+                <Icon name="mail" className="h-4 w-4 text-amber-400" />
+                Inquire With Graduate Office
+              </button>
+            </div>
+
+            {/* Four Core Pillars / Stats Bar */}
+            <div className="mt-14 grid grid-cols-2 gap-3 border-t border-white/10 pt-10 sm:grid-cols-4 sm:gap-4">
+              {heroStats.map((s) => (
+                <div
+                  key={s.l}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur-sm"
+                >
+                  <div className="font-display text-2xl font-bold text-amber-400 sm:text-3xl">
+                    {s.v}
+                  </div>
+                  <div className="mt-1 text-xs font-bold uppercase tracking-wider text-white">
+                    {s.l}
+                  </div>
+                  <div className="mt-1 text-[11px] text-slate-400">
+                    {s.desc}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Inquiry Dialog */}
+      <InquiryModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+    </>
   )
 }

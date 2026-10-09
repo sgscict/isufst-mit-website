@@ -25,3 +25,7 @@ src/assets/
 *.njsproj
 *.sln
 *.sw?
+
+# Scratch documents and generation scripts
+MIT702_*
+create_mit702_*.py

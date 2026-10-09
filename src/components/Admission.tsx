@@ -1,74 +1,139 @@
+import { useState } from 'react'
 import { admission, careers } from '../data'
 import Icon from './Icon'
 import Reveal from './Reveal'
-
-function Marquee() {
-  const items = [...careers, ...careers]
-  return (
-    <div className="relative mt-5 h-10 w-full overflow-hidden">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-navy-900 to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-navy-900 to-transparent" />
-      <div className="animate-marquee flex w-max gap-3">
-        {items.map((c, i) => (
-          <span
-            key={`${c}-${i}`}
-            className="shrink-0 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium whitespace-nowrap text-navy-50"
-          >
-            {c}
-          </span>
-        ))}
-      </div>
-    </div>
-  )
-}
+import InquiryModal from './InquiryModal'
 
 export default function Admission() {
-  return (
-    <section id="admission" className="bg-white py-12 dark:bg-navy-950/30 sm:py-16">
-      <div className="container-page">
-        <div className="grid min-w-0 grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-10">
-          <div className="min-w-0">
-            <span className="inline-flex items-center gap-2 rounded-full border border-teal-500/20 bg-teal-500/5 px-4 py-1.5 font-display text-xs font-bold uppercase tracking-widest text-teal-600 dark:border-teal-400/20 dark:bg-teal-400/10 dark:text-teal-300">
-              <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
-              Admission
-            </span>
-            <h2 className="mt-3 font-display text-3xl font-bold text-navy-900 text-balance sm:text-4xl dark:text-white">
-              What you need to apply
-            </h2>
-            <p className="mt-3 text-base leading-relaxed text-slate-600 dark:text-navy-100/65">
-              Prepare the following to get started:
-            </p>
-            <ul className="mt-4 space-y-1">
-              {admission.map((item) => (
-                <li
-                  key={item}
-                  className="flex min-w-0 items-start gap-3 rounded-xl p-2.5 text-slate-700 dark:text-navy-100/75"
-                >
-                  <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-teal-500 to-teal-400 text-white shadow-md shadow-teal-500/20">
-                    <Icon name="check" className="h-4 w-4" />
-                  </span>
-                  <span className="min-w-0 flex-1 leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+  const [checkedDocs, setCheckedDocs] = useState<Record<number, boolean>>({})
+  const [modalOpen, setModalOpen] = useState(false)
 
-          <Reveal delay={0.08} variant="scale" className="min-w-0 w-full">
-            <div className="relative w-full overflow-hidden rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 p-7 text-white shadow-2xl shadow-navy-900/30 sm:p-8">
-              <div className="absolute inset-0 bg-grid opacity-20" />
-              <div className="animate-orb absolute -right-16 -top-16 h-48 w-48 rounded-full bg-teal-500/15 blur-3xl" />
-              <h3 className="relative font-display text-xl font-bold sm:text-2xl">
-                Where an MIT can take you
-              </h3>
-              <p className="relative mt-2 text-sm leading-relaxed text-navy-100/75 sm:text-base">
-                Graduates move into senior technical, leadership, research, and academic roles across
-                industry and government.
+  const toggleCheck = (idx: number) => {
+    setCheckedDocs((prev) => ({ ...prev, [idx]: !prev[idx] }))
+  }
+
+  const completedCount = Object.values(checkedDocs).filter(Boolean).length
+
+  return (
+    <>
+      <section id="admission" className="bg-slate-50/70 py-16 dark:bg-navy-950/40 sm:py-24">
+        <div className="container-page">
+          <div className="grid min-w-0 grid-cols-1 items-start gap-12 lg:grid-cols-12">
+            {/* Left Column: Requirements & Interactive Checklist */}
+            <div className="min-w-0 lg:col-span-7">
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-teal-600 dark:text-teal-400">
+                School of Graduate Studies
+              </span>
+              <h2 className="mt-2 font-display text-3xl font-bold text-navy-950 sm:text-4xl dark:text-white">
+                Admission <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400">Documentary Requirements</span>
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-navy-100/70">
+                Submit certified documentary credentials to the SGS Graduate Admissions Office at the ISUFST Main-Poblacion Campus or upload online via PDF.
               </p>
-              <Marquee />
+
+              {/* Progress Tracker */}
+              <div className="mt-6 flex items-center justify-between rounded-xl border border-slate-200 bg-white p-3.5 shadow-sm dark:border-white/10 dark:bg-navy-900/60">
+                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+                  Interactive Readiness Checklist:
+                </span>
+                <span className="rounded-full bg-teal-500/10 px-2.5 py-0.5 font-mono text-xs font-bold text-teal-700 dark:text-teal-300">
+                  {completedCount} of {admission.length} Prepared
+                </span>
+              </div>
+
+              {/* Checklist items */}
+              <ul className="mt-4 space-y-2">
+                {admission.map((item, idx) => {
+                  const isChecked = !!checkedDocs[idx]
+                  return (
+                    <li
+                      key={item}
+                      onClick={() => toggleCheck(idx)}
+                      className={`flex cursor-pointer items-start gap-3 rounded-2xl border p-3.5 text-xs transition-all ${
+                        isChecked
+                          ? 'border-emerald-400/50 bg-emerald-50/50 text-slate-800 dark:border-emerald-400/30 dark:bg-emerald-950/20 dark:text-emerald-200'
+                          : 'border-slate-200/90 bg-white text-slate-700 hover:border-slate-300 dark:border-white/10 dark:bg-navy-900/60 dark:text-slate-300'
+                      }`}
+                    >
+                      <button
+                        type="button"
+                        aria-label="Toggle document ready"
+                        className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-md border transition-all ${
+                          isChecked
+                            ? 'border-emerald-500 bg-emerald-500 text-white'
+                            : 'border-slate-300 bg-white dark:border-white/20 dark:bg-white/5'
+                        }`}
+                      >
+                        {isChecked && <Icon name="check" className="h-3.5 w-3.5" />}
+                      </button>
+                      <span className="min-w-0 flex-1 leading-relaxed">
+                        {item}
+                      </span>
+                    </li>
+                  )
+                })}
+              </ul>
+
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setModalOpen(true)}
+                  className="rounded-xl bg-navy-900 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm hover:bg-navy-800 dark:bg-amber-500 dark:text-navy-950 dark:hover:bg-amber-400"
+                >
+                  Request Application Dossier
+                </button>
+                <a
+                  href="mailto:sgs@isufst.edu.ph"
+                  className="rounded-xl border border-slate-300 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-slate-700 hover:bg-white dark:border-white/15 dark:text-slate-200 dark:hover:bg-white/5"
+                >
+                  Email Graduate Dean
+                </a>
+              </div>
             </div>
-          </Reveal>
+
+            {/* Right Column: Career Trajectories Card */}
+            <div className="min-w-0 lg:col-span-5">
+              <Reveal delay={0.1} variant="scale">
+                <div className="overflow-hidden rounded-3xl border border-slate-200 bg-navy-950 p-7 text-white shadow-xl dark:border-white/10 sm:p-8">
+                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-amber-400">
+                    Graduate Career Horizons
+                  </span>
+                  <h3 className="mt-2 font-display text-2xl font-bold">
+                    Where an ISUFST MIT Leads
+                  </h3>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-300">
+                    Graduates advance into senior technological leadership, enterprise architecture, high-impact regional research, and doctoral study.
+                  </p>
+
+                  <div className="mt-6 space-y-2">
+                    {careers.map((role, idx) => (
+                      <div
+                        key={role}
+                        className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs text-slate-200"
+                      >
+                        <span className="grid h-5 w-5 place-items-center rounded bg-amber-400/20 font-mono text-[10px] font-bold text-amber-300">
+                          0{idx + 1}
+                        </span>
+                        <span className="font-medium">{role}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-8 rounded-2xl border border-teal-400/20 bg-teal-400/10 p-4 text-xs text-teal-200">
+                    <div className="font-bold text-white">Pathway to Doctoral Studies:</div>
+                    <p className="mt-1 leading-relaxed">
+                      Graduates satisfy all prerequisite master’s qualification criteria for admission into Doctor in Information Technology (DIT) and PhD in Computer Science programs nationwide.
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Inquiry Dialog */}
+      <InquiryModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+    </>
   )
 }

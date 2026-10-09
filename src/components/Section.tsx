@@ -28,7 +28,7 @@ export default function Section({
   const centered = align === 'center'
 
   return (
-    <section id={id} className={`relative py-16 sm:py-20 ${className}`}>
+    <section id={id} className={`relative py-16 sm:py-24 ${className}`}>
       {dark && (
         <>
           <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950" />
@@ -40,26 +40,26 @@ export default function Section({
         {(eyebrow || title || intro) && (
           <div
             ref={ref}
-            className={`reveal ${visible ? 'is-visible' : ''} max-w-2xl ${
+            className={`reveal ${visible ? 'is-visible' : ''} max-w-3xl ${
               centered ? 'mx-auto text-center' : ''
             }`}
           >
             {eyebrow && (
               <span
-                className={`inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-display text-xs font-bold uppercase tracking-widest ${
+                className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1 font-mono text-xs font-bold uppercase tracking-widest ${
                   dark
-                    ? 'border border-teal-400/20 bg-teal-400/10 text-teal-300'
-                    : 'border border-teal-500/20 bg-teal-500/5 text-teal-600 dark:border-teal-400/20 dark:bg-teal-400/10 dark:text-teal-300'
+                    ? 'border border-amber-400/20 bg-amber-400/10 text-amber-300'
+                    : 'border border-slate-200 bg-slate-50 text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-amber-300'
                 }`}
               >
-                <span className={`h-1.5 w-1.5 rounded-full ${dark ? 'bg-teal-400' : 'bg-teal-500'}`} />
+                <span className={`h-1.5 w-1.5 rounded-full ${dark ? 'bg-amber-400' : 'bg-amber-500'}`} />
                 {eyebrow}
               </span>
             )}
             {title && (
               <h2
-                className={`mt-5 font-display text-3xl font-bold text-balance sm:text-4xl lg:text-[2.75rem] 2xl:text-5xl ${
-                  dark ? 'text-white' : 'text-navy-900 dark:text-white'
+                className={`mt-4 font-display text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:text-5xl ${
+                  dark ? 'text-white' : 'text-navy-950 dark:text-white'
                 }`}
               >
                 {title}
@@ -67,8 +67,8 @@ export default function Section({
             )}
             {intro && (
               <p
-                className={`mt-5 text-lg leading-relaxed ${
-                  dark ? 'text-navy-100/70' : 'text-slate-600 dark:text-navy-100/65'
+                className={`mt-4 text-base sm:text-lg leading-relaxed ${
+                  dark ? 'text-slate-300' : 'text-slate-600 dark:text-slate-300'
                 }`}
               >
                 {intro}
@@ -79,7 +79,7 @@ export default function Section({
         <div
           className={
             eyebrow || title
-              ? `mt-10 sm:mt-12 ${contentClassName}`.trim()
+              ? `mt-10 sm:mt-14 ${contentClassName}`.trim()
               : contentClassName
           }
         >

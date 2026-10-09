@@ -1,15 +1,15 @@
 export const navLinks = [
-  { href: '#about', label: 'Overview' },
-  { href: '#why', label: 'Why MIT' },
+  { href: '#overview', label: 'Overview' },
   { href: '#curriculum', label: 'Curriculum' },
-  { href: '#graduate', label: 'Graduate' },
+  { href: '#eligibility', label: 'Eligibility' },
   { href: '#capstone', label: 'Capstone' },
-  { href: '#research', label: 'Research' },
+  { href: '#schedule', label: 'Schedule' },
+  { href: '#tuition', label: 'Tuition & Grants' },
   { href: '#admission', label: 'Admission' },
   { href: '#faq', label: 'FAQ' },
 ] as const
 
 export const pageLinks = [
-  { to: '/faculty', label: 'Faculty' },
-  { to: '/scholarship', label: 'Scholarship' },
+  { to: '/faculty', label: 'Faculty & Mentors' },
+  { to: '/scholarship', label: 'DOST STRAND Grant' },
 ] as const
