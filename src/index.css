@@ -4,59 +4,58 @@
 
 @theme {
   --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-  --font-serif: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
-  --font-display: 'Newsreader', Georgia, Cambria, serif;
+  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
-  --color-navy-50: #f4f7fb;
-  --color-navy-100: #e3ebf5;
-  --color-navy-200: #c5d7ed;
-  --color-navy-300: #9abde0;
-  --color-navy-400: #679ecf;
-  --color-navy-500: #427fb9;
-  --color-navy-600: #2d659e;
-  --color-navy-700: #245180;
-  --color-navy-800: #1b3d63;
-  --color-navy-900: #0d223c;
-  --color-navy-950: #061223;
+  /* Official ISUFST Royal Blue Palette */
+  --color-navy-50: #f0f6ff;
+  --color-navy-100: #e0edff;
+  --color-navy-200: #bae0fd;
+  --color-navy-300: #7cc5fb;
+  --color-navy-400: #38a5f8;
+  --color-navy-500: #0e87eb;
+  --color-navy-600: #0269ca;
+  --color-navy-700: #0352a1;
+  --color-navy-800: #0b3d91;
+  --color-navy-900: #082c68;
+  --color-navy-950: #051a40;
 
-  --color-teal-400: #2dd4bf;
-  --color-teal-500: #14b8a6;
-  --color-teal-600: #0d9488;
-  --color-teal-700: #0f766e;
-  --color-teal-800: #115e59;
+  /* Signature ISUFST Aqua Blue Palette (Fisheries & Maritime Heritage) */
+  --color-teal-400: #38bdf8;
+  --color-teal-500: #0ea5e9;
+  --color-teal-600: #0284c7;
+  --color-teal-700: #0369a1;
 
-  --color-amber-400: #fbbf24;
+  /* ISUFST Crest Red Accent */
+  --color-isufst-red: #dc2626;
+
+  /* University Gold / Bronze Accent */
   --color-amber-500: #f59e0b;
   --color-amber-600: #d97706;
-  --color-amber-700: #b45309;
-
-  --color-gold-400: #fbbf24;
-  --color-gold-500: #f59e0b;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 5rem;
   }
 
   body {
-    @apply bg-[#f8fafc] text-slate-800 antialiased transition-colors duration-300;
+    @apply bg-[#f8fafc] text-slate-800 antialiased transition-colors duration-200;
     font-family: var(--font-sans);
     overflow-wrap: break-word;
   }
 
   .dark body {
-    @apply bg-[#070f1e] text-slate-200;
+    @apply bg-[#061226] text-slate-100;
   }
 
   ::selection {
-    @apply bg-amber-400/30 text-navy-950;
+    @apply bg-[#0284c7]/20 text-[#0b3d91];
   }
 
   .dark ::selection {
-    @apply bg-teal-400/25 text-white;
+    @apply bg-[#0284c7]/30 text-white;
   }
 }
 
@@ -65,111 +64,55 @@
     font-family: var(--font-display);
   }
 
-  .font-serif {
-    font-family: var(--font-serif);
-  }
-
-  .font-mono {
-    font-family: var(--font-mono);
-  }
-
   .container-page {
-    @apply mx-auto w-full max-w-6xl min-w-0 px-5 sm:px-6 lg:px-8 2xl:max-w-7xl;
+    @apply mx-auto w-full max-w-6xl min-w-0 px-4 sm:px-6 lg:px-8;
   }
 
   .text-balance {
     text-wrap: balance;
   }
 
-  /* Academic subtle grids */
+  /* Clean Academic Grid */
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      linear-gradient(to right, rgba(11, 61, 145, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11, 61, 145, 0.05) 1px, transparent 1px);
     background-size: 32px 32px;
   }
 
-  .bg-dot-grid {
-    background-image: radial-gradient(circle, rgba(13, 34, 60, 0.06) 1px, transparent 1px);
-    background-size: 20px 20px;
-  }
-
-  .dark .bg-dot-grid {
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  }
-
-  .surface-section {
-    @apply bg-transparent;
-  }
-
-  .surface-card {
-    @apply rounded-2xl border border-slate-200/90 bg-white shadow-sm dark:border-white/10 dark:bg-navy-900/60 dark:shadow-none;
-  }
-
-  .card-elevated {
-    @apply rounded-2xl border border-slate-200/80 bg-white shadow-[0_4px_20px_-4px_rgba(15,23,42,0.06)] transition-all duration-300 dark:border-white/10 dark:bg-navy-900/70 dark:shadow-none;
-  }
-
-  .academic-badge {
-    @apply inline-flex items-center gap-1.5 rounded-full border px-3 py-1 font-mono text-xs font-semibold tracking-wide uppercase;
+  .dark .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   }
 
   .page-backdrop {
-    @apply pointer-events-none fixed inset-0 opacity-40 dark:opacity-20;
-    background-image: radial-gradient(circle, rgba(13, 34, 60, 0.06) 1px, transparent 1px);
-    background-size: 24px 24px;
+    @apply pointer-events-none fixed inset-0 opacity-30 dark:opacity-10;
+    background-image: radial-gradient(circle, rgba(11, 61, 145, 0.06) 1px, transparent 1px);
+    background-size: 20px 20px;
   }
 
-  .dark .page-backdrop {
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  /* Animation classes */
+  .reveal {
+    opacity: 0;
   }
 
-  .bg-noise {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  .reveal.is-visible {
+    animation: enter-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
-  .gold-gradient-text {
-    @apply bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 bg-clip-text text-transparent;
+  .reveal-scale {
+    opacity: 0;
   }
 
-  .teal-gradient-text {
-    @apply bg-gradient-to-r from-teal-400 via-emerald-400 to-teal-300 bg-clip-text text-transparent;
+  .reveal-scale.is-visible {
+    animation: enter-scale 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
-  .gradient-border {
-    position: relative;
-    border-radius: 1rem;
-    transition: all 0.3s ease;
-  }
-
-  .shine {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .shine::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      105deg,
-      transparent 35%,
-      rgba(255, 255, 255, 0.2) 50%,
-      transparent 65%
-    );
-    transform: translateX(-120%);
-    transition: transform 0.6s ease;
-  }
-
-  .shine:hover::after {
-    transform: translateX(120%);
-  }
-
-  /* ── Keyframes & Animations ── */
   @keyframes enter-up {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(16px);
     }
     to {
       opacity: 1;
@@ -180,7 +123,7 @@
   @keyframes enter-scale {
     from {
       opacity: 0;
-      transform: scale(0.96) translateY(10px);
+      transform: scale(0.97) translateY(8px);
     }
     to {
       opacity: 1;
@@ -188,66 +131,11 @@
     }
   }
 
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  @keyframes line-grow {
-    from { transform: scaleY(0); }
-    to { transform: scaleY(1); }
-  }
-
-  @keyframes nav-enter {
-    from {
-      opacity: 0;
-      transform: translateY(-100%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-marquee { animation: marquee 35s linear infinite; }
-  .animate-nav-enter { animation: nav-enter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
-
-  .animate-enter-up {
-    animation: enter-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  .animate-enter-scale {
-    animation: enter-scale 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  /* Scroll reveal */
-  .reveal {
-    opacity: 0;
-  }
-
-  .reveal.is-visible {
-    animation: enter-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  .reveal-scale {
-    opacity: 0;
-  }
-
-  .reveal-scale.is-visible {
-    animation: enter-scale 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  .reveal.is-visible,
-  .reveal-scale.is-visible {
-    animation-delay: var(--reveal-delay, 0s);
-  }
-
-  /* FAQ accordion */
   .faq-panel {
     display: grid;
     grid-template-rows: 0fr;
     opacity: 0;
-    transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+    transition: grid-template-rows 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
   }
 
   .faq-panel.is-open {
@@ -255,21 +143,10 @@
     opacity: 1;
   }
 
-  .timeline-line {
-    transform-origin: top;
-    animation: line-grow 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .reveal,
     .reveal-scale {
       opacity: 1;
-    }
-
-    .reveal.is-visible,
-    .reveal-scale.is-visible,
-    .animate-marquee {
-      animation: none !important;
     }
   }
 }

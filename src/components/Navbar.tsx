@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { program } from '../data'
 import { navLinks, pageLinks } from '../nav'
 import ThemeToggle from './ThemeToggle'
@@ -11,6 +11,7 @@ export default function Navbar() {
   const [active, setActive] = useState('')
   const [modalOpen, setModalOpen] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
   const isHome = location.pathname === '/'
 
   useEffect(() => {
@@ -25,47 +26,58 @@ export default function Navbar() {
       setActive('')
       return
     }
-    const sections = navLinks.map((l) => document.querySelector(l.href)).filter(Boolean)
+    const sections = navLinks
+      .map((l) => document.getElementById(l.href.replace(/^#/, '')))
+      .filter(Boolean)
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(`#${entry.target.id}`)
+          if (entry.isIntersecting) {
+            setActive(`#${entry.target.id}`)
+          }
         })
       },
-      { rootMargin: '-30% 0px -60% 0px' },
+      { rootMargin: '-20% 0px -60% 0px' },
     )
     sections.forEach((s) => observer.observe(s!))
     return () => observer.disconnect()
   }, [isHome])
 
-  const linkClass = (isActive: boolean) =>
-    `relative whitespace-nowrap rounded-xl px-2.5 py-1.5 text-xs font-semibold tracking-wide transition-all ${
-      isActive
-        ? 'text-navy-950 font-bold dark:text-amber-300'
-        : 'text-slate-600 hover:text-navy-950 dark:text-slate-300 dark:hover:text-white'
-    }`
-
-  const underlineClass = `absolute inset-x-2 -bottom-0.5 h-0.5 rounded-full bg-amber-500`
+  const handleNavClick = (href: string) => {
+    setOpen(false)
+    const targetId = href.replace(/^#/, '')
+    if (isHome) {
+      const el = document.getElementById(targetId)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        window.history.pushState(null, '', href)
+        setActive(href)
+      }
+    } else {
+      navigate(`/${href}`)
+    }
+  }
 
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-40">
-        {/* Top Institutional Notification Bar */}
-        <div className="hidden sm:block border-b border-navy-900/10 bg-navy-950 text-slate-200 px-4 py-1.5 text-[11px] font-medium tracking-wide">
+        {/* Institutional Blue Top Bar */}
+        <div className="bg-[#0b3d91] text-white px-4 py-1.5 text-[11px] font-medium tracking-wide shadow-sm">
           <div className="container-page flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="inline-block h-2 w-2 rounded-full bg-[#00e5ff] animate-pulse" />
               <span>
-                School of Graduate Studies · Admissions Open for {program.academicYear} ({program.intakeTerm})
+                Iloilo State University of Fisheries Science and Technology · CICT School of Graduate Studies
               </span>
             </div>
-            <div className="flex items-center gap-4 text-slate-300">
-              <span className="hidden md:inline">CHED CMO 15 s.2019 Compliant</span>
+            <div className="hidden sm:flex items-center gap-3 text-sky-100">
+              <span className="font-semibold text-[#38bdf8]">CHED CMO 15 s.2019</span>
               <span>•</span>
-              <span className="text-amber-400 font-semibold">DOST-SEI STRAND Accredited</span>
+              <span className="text-white">DOST-SEI STRAND Accredited</span>
               <span>•</span>
-              <Link to="/scholarship" className="hover:text-white underline">
-                View Grants
+              <Link to="/scholarship" className="hover:text-white underline font-semibold">
+                Scholarships
               </Link>
             </div>
           </div>
@@ -74,71 +86,94 @@ export default function Navbar() {
         {/* Main Navbar */}
         <div className="px-3 pt-2 sm:px-6">
           <nav
-            className={`mx-auto flex h-14 max-w-6xl items-center justify-between rounded-2xl px-3 transition-all duration-300 sm:h-16 sm:px-5 ${
+            className={`mx-auto flex h-15 max-w-6xl items-center justify-between rounded-xl px-4 transition-all duration-300 sm:h-16 ${
               scrolled || !isHome
-                ? 'border border-slate-200/90 bg-white/95 shadow-md shadow-slate-900/5 backdrop-blur-xl dark:border-white/10 dark:bg-navy-950/95 dark:shadow-black/30'
-                : 'border border-slate-200/60 bg-white/80 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-navy-950/80'
+                ? 'border border-slate-200 bg-white/95 shadow-md shadow-slate-900/5 backdrop-blur-xl dark:border-slate-800 dark:bg-[#071328]/95'
+                : 'border border-slate-200/90 bg-white/90 shadow-sm backdrop-blur-md dark:border-slate-800 dark:bg-[#071328]/90'
             }`}
           >
-            {/* University & College Lockup */}
+            {/* Logo Lockup in ISUFST Royal Blue */}
             <Link to="/" className="group flex shrink-0 items-center gap-3">
-              <span className="relative grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-xl border border-slate-200 bg-white p-1 shadow-sm transition-transform group-hover:scale-105 dark:border-white/10">
+              <div className="relative grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-xl border border-sky-100 bg-white p-1 shadow-sm transition-transform group-hover:scale-105">
                 <img
                   src="/isufst-logo.png"
-                  alt={program.universityAbbrev}
+                  alt="ISUFST Logo"
                   className="h-full w-full object-contain"
                 />
-              </span>
+              </div>
               <div className="leading-tight">
-                <div className="font-display text-sm font-bold tracking-tight text-navy-950 dark:text-white">
-                  {program.abbrev} <span className="font-sans text-xs text-slate-400">·</span> {program.collegeAbbrev}
+                <div className="font-sans text-sm font-extrabold tracking-tight text-[#0b3d91] dark:text-sky-300">
+                  {program.abbrev} <span className="text-slate-400 font-normal">·</span> {program.collegeAbbrev}
                 </div>
-                <div className="font-mono text-[10px] text-slate-500 dark:text-slate-400">
-                  {program.universityAbbrev} · Iloilo
+                <div className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                  ISUFST Main Campus · Iloilo
                 </div>
               </div>
             </Link>
 
-            {/* Desktop Navigation Links */}
-            <div className="hidden items-center gap-0.5 lg:flex">
+            {/* Desktop Navigation */}
+            <div className="hidden items-center gap-1 xl:flex">
               {isHome &&
-                navLinks.map((l) => (
-                  <a key={l.href} href={l.href} className={linkClass(active === l.href)}>
-                    {active === l.href && <span className={underlineClass} />}
-                    {l.label}
-                  </a>
-                ))}
+                navLinks.map((l) => {
+                  const isLinkActive = active === l.href
+                  return (
+                    <button
+                      key={l.href}
+                      type="button"
+                      onClick={() => handleNavClick(l.href)}
+                      className={`relative rounded-lg px-2.5 py-1.5 text-xs font-bold transition-colors ${
+                        isLinkActive
+                          ? 'text-[#0b3d91] bg-sky-50 dark:bg-sky-950/60 dark:text-sky-300'
+                          : 'text-slate-600 hover:text-[#0b3d91] hover:bg-slate-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60'
+                      }`}
+                    >
+                      {l.label}
+                      {isLinkActive && (
+                        <span className="absolute inset-x-2 -bottom-1 h-0.5 rounded-full bg-[#0284c7]" />
+                      )}
+                    </button>
+                  )
+                })}
               {navLinks.length > 0 && isHome && (
-                <span className="mx-1.5 h-4 w-px bg-slate-200 dark:bg-white/10" />
+                <span className="mx-1.5 h-4 w-px bg-slate-200 dark:bg-slate-700" />
               )}
-              {pageLinks.map((l) => (
-                <Link
-                  key={l.to}
-                  to={l.to}
-                  className={linkClass(location.pathname === l.to)}
-                >
-                  {location.pathname === l.to && <span className={underlineClass} />}
-                  {l.label}
-                </Link>
-              ))}
+              {pageLinks.map((l) => {
+                const isPageActive = location.pathname === l.to
+                return (
+                  <Link
+                    key={l.to}
+                    to={l.to}
+                    className={`relative rounded-lg px-2.5 py-1.5 text-xs font-bold transition-colors ${
+                      isPageActive
+                        ? 'text-[#0b3d91] bg-sky-50 dark:bg-sky-950/60 dark:text-sky-300'
+                        : 'text-slate-600 hover:text-[#0b3d91] hover:bg-slate-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60'
+                    }`}
+                  >
+                    {l.label}
+                    {isPageActive && (
+                      <span className="absolute inset-x-2 -bottom-1 h-0.5 rounded-full bg-[#0284c7]" />
+                    )}
+                  </Link>
+                )
+              })}
             </div>
 
-            {/* Right Action Buttons */}
+            {/* Right Action */}
             <div className="flex items-center gap-2">
               <ThemeToggle scrolled={true} />
 
               <button
                 type="button"
                 onClick={() => setModalOpen(true)}
-                className="hidden rounded-xl bg-navy-900 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:bg-navy-800 dark:bg-amber-500 dark:text-navy-950 dark:hover:bg-amber-400 sm:inline-flex"
+                className="hidden rounded-lg bg-[#0b3d91] px-4 py-2 text-xs font-bold uppercase tracking-wider text-white shadow-sm hover:bg-[#082a66] transition-colors dark:bg-[#0284c7] dark:hover:bg-[#0369a1] sm:inline-flex"
               >
-                Inquire
+                Inquire Now
               </button>
 
               <button
                 type="button"
                 onClick={() => setOpen((v) => !v)}
-                className="grid h-9 w-9 place-items-center rounded-xl border border-slate-200 text-navy-900 hover:bg-slate-100 dark:border-white/10 dark:text-white dark:hover:bg-white/10 lg:hidden"
+                className="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-slate-800 dark:text-white xl:hidden"
                 aria-label="Toggle menu"
                 aria-expanded={open}
               >
@@ -154,31 +189,31 @@ export default function Navbar() {
           </nav>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile Drawer */}
         <div
-          className={`mx-auto max-w-6xl px-3 transition-all duration-300 lg:hidden ${
+          className={`mx-auto max-w-6xl px-3 transition-all duration-300 xl:hidden ${
             open ? 'mt-2 max-h-[38rem] opacity-100' : 'max-h-0 overflow-hidden opacity-0'
           }`}
         >
-          <div className="rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-navy-950/95 space-y-1">
+          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-xl dark:border-slate-800 dark:bg-[#071328] space-y-1">
             {isHome &&
               navLinks.map((l) => (
-                <a
+                <button
                   key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-white/5"
+                  type="button"
+                  onClick={() => handleNavClick(l.href)}
+                  className="block w-full text-left rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-700 hover:bg-sky-50 hover:text-[#0b3d91] dark:text-slate-200 dark:hover:bg-slate-800"
                 >
                   {l.label}
-                </a>
+                </button>
               ))}
-            {isHome && <div className="my-2 h-px bg-slate-200 dark:bg-white/10" />}
+            {isHome && <div className="my-2 h-px bg-slate-200 dark:bg-slate-800" />}
             {pageLinks.map((l) => (
               <Link
                 key={l.to}
                 to={l.to}
                 onClick={() => setOpen(false)}
-                className="block rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-white/5"
+                className="block rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-700 hover:bg-sky-50 hover:text-[#0b3d91] dark:text-slate-200 dark:hover:bg-slate-800"
               >
                 {l.label}
               </Link>
@@ -190,7 +225,7 @@ export default function Navbar() {
                   setOpen(false)
                   setModalOpen(true)
                 }}
-                className="w-full rounded-xl bg-navy-900 py-3 text-center text-xs font-bold uppercase tracking-wider text-white dark:bg-amber-500 dark:text-navy-950"
+                className="w-full rounded-lg bg-[#0b3d91] py-2.5 text-center text-xs font-bold uppercase tracking-wider text-white hover:bg-[#082a66]"
               >
                 Inquire With Graduate Office
               </button>
@@ -199,7 +234,6 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Inquiry Dialog */}
       <InquiryModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   )

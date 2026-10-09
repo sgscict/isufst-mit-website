@@ -1,22 +1,24 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
-// Scrolls to an in-page anchor after route changes (e.g. navigating from
-// /faculty back to /#admission), or resets to the top for plain route changes.
 export default function ScrollToHash() {
   const location = useLocation()
 
   useEffect(() => {
     if (location.hash) {
-      const el = document.querySelector(location.hash)
+      const targetId = location.hash.replace(/^#/, '')
+      const el = document.getElementById(targetId)
       if (el) {
-        const timer = window.setTimeout(() => {
+        setTimeout(() => {
           el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }, 0)
-        return () => window.clearTimeout(timer)
+        }, 50)
+        return
       }
     }
-    window.scrollTo({ top: 0 })
+    // If no hash, scroll to top on page change
+    if (!location.hash) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
   }, [location.pathname, location.hash])
 
   return null

@@ -1,53 +1,50 @@
 import { requirements } from '../data'
 import Section from './Section'
-import Reveal from './Reveal'
 
 export default function Graduate() {
   return (
     <Section
       id="graduate"
-      className="bg-navy-950 py-16 text-white sm:py-24"
+      className="bg-[#0b3d91] py-16 text-white sm:py-20"
       dark
       eyebrow="Degree Completion"
       title={
         <>
-          Three Academic <span className="font-serif italic font-normal text-amber-400">Quality Gates</span>
+          Three Academic <span className="text-[#38bdf8]">Quality Gates</span>
         </>
       }
       intro="The Master in Information Technology maintains rigorous academic and industrial standards. Every candidate must satisfy three milestones to qualify for graduation and degree conferment."
     >
-      <div className="grid gap-6 lg:grid-cols-3">
-        {requirements.map((req, i) => (
-          <Reveal
+      <div className="grid gap-5 lg:grid-cols-3">
+        {requirements.map((req) => (
+          <div
             key={req.n}
-            delay={i * 0.08}
-            variant="scale"
-            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/40 hover:bg-white/10 hover:shadow-2xl"
+            className="flex flex-col justify-between rounded-2xl border border-sky-400/20 bg-sky-950/40 p-6 backdrop-blur-sm transition-all hover:border-sky-400/50 hover:bg-sky-950/60"
           >
             <div>
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-amber-400">
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#38bdf8]">
                   Gate {req.n}
                 </span>
-                <span className="rounded-full border border-teal-400/20 bg-teal-400/10 px-3 py-1 font-mono text-[11px] font-bold text-teal-300">
+                <span className="rounded-full border border-sky-400/30 bg-sky-500/10 px-2.5 py-0.5 font-mono text-[11px] font-bold text-sky-200">
                   {req.badge}
                 </span>
               </div>
 
-              <h3 className="mt-5 font-display text-xl font-bold text-white">
+              <h3 className="mt-4 font-sans text-lg font-bold text-white">
                 {req.title}
               </h3>
 
-              <p className="mt-3 text-xs leading-relaxed text-slate-300">
+              <p className="mt-2 text-xs leading-relaxed text-sky-100/80">
                 {req.body}
               </p>
             </div>
 
-            <div className="mt-8 border-t border-white/10 pt-4 flex items-center justify-between text-xs">
-              <span className="text-slate-400">Target Milestone:</span>
-              <span className="font-semibold text-amber-300">{req.when}</span>
+            <div className="mt-6 border-t border-sky-400/20 pt-3 flex items-center justify-between text-xs">
+              <span className="text-sky-300/70">Target:</span>
+              <span className="font-semibold text-white">{req.when}</span>
             </div>
-          </Reveal>
+          </div>
         ))}
       </div>
     </Section>

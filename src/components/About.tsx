@@ -7,35 +7,35 @@ export default function About() {
   return (
     <Section
       id="overview"
-      className="bg-white py-16 dark:bg-navy-950/40 sm:py-24"
+      className="bg-white py-16 dark:bg-[#071328]/60 sm:py-20"
       eyebrow="Program Paradigm"
       title={
         <>
           Moving from Consuming Tech to{' '}
-          <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400">Engineering Artifacts</span>
+          <span className="text-[#0284c7]">Engineering Artifacts</span>
         </>
       }
-      intro={`Most master's programs in the region evaluate students purely on theoretical analysis. The ISUFST MIT requires you to engineer and validate a tangible technology artifact — an edge-AI system, IoT sensor mesh, or spatial data platform that directly serves the blue economy and agriculture of Western Visayas.`}
+      intro="Most master's programs in the region evaluate students purely on theoretical analysis. The ISUFST MIT requires you to engineer and validate a tangible technology artifact — an edge-AI system, IoT sensor mesh, or spatial data platform that directly serves the blue economy and agriculture of Western Visayas."
     >
       {/* 4 Pillars Grid */}
       <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((x, i) => (
           <Reveal
             key={x.label}
-            delay={i * 0.06}
+            delay={i * 0.05}
             variant="scale"
-            className="rounded-2xl border border-slate-200/90 bg-slate-50/60 p-6 transition-all hover:border-amber-400/50 hover:bg-white hover:shadow-lg dark:border-white/10 dark:bg-navy-900/60 dark:hover:bg-navy-900"
+            className="rounded-2xl border border-slate-200 bg-slate-50/60 p-6 transition-all hover:border-[#0284c7] hover:bg-white hover:shadow-md dark:border-slate-800 dark:bg-slate-900/60"
           >
-            <div className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+            <div className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400">
               Pillar 0{i + 1}
             </div>
-            <div className="mt-2 font-display text-4xl font-bold text-navy-950 dark:text-white">
+            <div className="mt-2 font-sans text-3xl font-black text-[#0b3d91] dark:text-sky-300">
               {x.value}
             </div>
-            <div className="mt-2 text-sm font-bold text-slate-900 dark:text-slate-100">
+            <div className="mt-1 text-sm font-bold text-slate-900 dark:text-white">
               {x.label}
             </div>
-            <div className="mt-1 text-xs leading-relaxed text-slate-600 dark:text-navy-200/60">
+            <div className="mt-1 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
               {x.sub}
             </div>
           </Reveal>
@@ -43,14 +43,14 @@ export default function About() {
       </div>
 
       {/* Comparison Panel: DSRM Artifact vs Traditional Thesis */}
-      <Reveal className="mt-14" delay={0.1}>
-        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-50/50 dark:border-white/10 dark:bg-navy-900/40">
-          <div className="grid lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 dark:divide-white/10">
+      <Reveal className="mt-12" delay={0.1}>
+        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/50 dark:border-slate-800 dark:bg-slate-900/40">
+          <div className="grid lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 dark:divide-slate-800">
             <div className="p-6 sm:p-8">
-              <span className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-400">
+              <span className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400">
                 Conventional Master of Science (MS)
               </span>
-              <h4 className="mt-1 font-display text-xl font-bold text-slate-800 dark:text-slate-200">
+              <h4 className="mt-1 text-lg font-bold text-slate-800 dark:text-slate-200">
                 The Theoretical Thesis Model
               </h4>
               <ul className="mt-4 space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
@@ -69,24 +69,24 @@ export default function About() {
               </ul>
             </div>
 
-            <div className="p-6 sm:p-8 bg-amber-500/5 dark:bg-amber-400/5">
-              <span className="font-mono text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">
+            <div className="p-6 sm:p-8 bg-sky-50/50 dark:bg-sky-950/20">
+              <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#0284c7]">
                 ISUFST Master in Information Technology (MIT)
               </span>
-              <h4 className="mt-1 font-display text-xl font-bold text-navy-950 dark:text-white">
+              <h4 className="mt-1 text-lg font-bold text-[#0b3d91] dark:text-sky-300">
                 The Design Science Artifact Model
               </h4>
               <ul className="mt-4 space-y-2.5 text-xs text-slate-700 dark:text-slate-300">
                 <li className="flex items-start gap-2">
-                  <Icon name="check" className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                  <Icon name="check" className="h-4 w-4 text-[#0284c7] shrink-0 mt-0.5" />
                   <span><strong>Demonstrable technology artifact:</strong> working models, sensor nodes, or cloud APIs</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Icon name="check" className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                  <Icon name="check" className="h-4 w-4 text-[#0284c7] shrink-0 mt-0.5" />
                   <span><strong>Empirical evaluation:</strong> benchmarked against real latency, accuracy, or field trials</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Icon name="check" className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                  <Icon name="check" className="h-4 w-4 text-[#0284c7] shrink-0 mt-0.5" />
                   <span><strong>Refereed publication:</strong> mandatory international peer-reviewed journal acceptance</span>
                 </li>
               </ul>
@@ -96,15 +96,15 @@ export default function About() {
       </Reveal>
 
       {/* Graduate Outcomes PO1–PO6 */}
-      <Reveal className="mt-16" delay={0.15}>
+      <Reveal className="mt-14" delay={0.15}>
         <div className="text-center max-w-2xl mx-auto">
-          <span className="font-mono text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
+          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#0284c7]">
             Graduate Attributes
           </span>
-          <h3 className="mt-1 font-display text-2xl font-bold text-navy-950 dark:text-white sm:text-3xl">
+          <h3 className="mt-1 text-2xl font-bold text-[#0b3d91] dark:text-white sm:text-3xl">
             Program Educational Outcomes
           </h3>
-          <p className="mt-2 text-sm text-slate-600 dark:text-navy-100/70">
+          <p className="mt-2 text-xs text-slate-600 dark:text-slate-400">
             Mandated by CHED CMO 15 s. 2019 and Level 7 of the Philippine Qualifications Framework.
           </p>
         </div>
@@ -115,13 +115,13 @@ export default function About() {
               key={po.n}
               delay={i * 0.05}
               variant="scale"
-              className="group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition-all hover:border-teal-400/50 hover:shadow-md dark:border-white/10 dark:bg-navy-900/60"
+              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:border-[#0284c7] hover:shadow-md dark:border-slate-800 dark:bg-slate-900/60"
             >
               <div className="flex items-center gap-3">
-                <span className="grid h-8 w-8 place-items-center rounded-xl bg-navy-900 font-mono text-xs font-bold text-amber-400 dark:bg-amber-400/10 dark:text-amber-300">
+                <span className="grid h-8 w-8 place-items-center rounded-xl bg-[#0b3d91] font-mono text-xs font-bold text-white dark:bg-[#0284c7]">
                   {po.n}
                 </span>
-                <div className="font-display text-sm font-bold text-navy-950 dark:text-white">
+                <div className="font-sans text-sm font-bold text-slate-900 dark:text-white">
                   {po.title}
                 </div>
               </div>
