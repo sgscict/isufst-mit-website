@@ -3,7 +3,7 @@ import About from '../components/About'
 import Highlights from '../components/Highlights'
 import EligibilityChecker from '../components/EligibilityChecker'
 import CurriculumExplorer from '../components/CurriculumExplorer'
-import CapstoneShowcase from '../components/CapstoneShowcase'
+import Capstone from '../components/Capstone'
 import ScheduleModality from '../components/ScheduleModality'
 import InvestmentCalculator from '../components/InvestmentCalculator'
 import Graduate from '../components/Graduate'
@@ -20,7 +20,7 @@ export default function Home() {
       <Highlights />
       <EligibilityChecker />
       <CurriculumExplorer />
-      <CapstoneShowcase />
+      <Capstone />
       <ScheduleModality />
       <InvestmentCalculator />
       <Graduate />
